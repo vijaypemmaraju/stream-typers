@@ -93,7 +93,7 @@ const App: FC = () => {
       });
     };
     loader();
-  }, []);
+  }, [streamer]);
 
   return (
     <div
