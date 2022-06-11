@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
 import { ChatClient } from '@twurple/chat';
-import { Button, Divider, List, Typography } from '@mui/material';
+import { Button, Divider, List, TextField, Typography } from '@mui/material';
 import { AnimatePresence, motion, Reorder } from 'framer-motion';
 import words from './words.json';
 import useStore from './useStore';
+import usePersistedStore from './usePersistedStore';
 
 const App: FC = () => {
   const users = useStore(store => store.users);
@@ -19,7 +20,8 @@ const App: FC = () => {
   const winner = useStore(store => store.winner);
   const setWinner = useStore(store => store.setWinner);
 
-  console.log(users);
+  const streamer = usePersistedStore(store => store.streamer);
+  const setStreamer = usePersistedStore(store => store.setStreamer);
 
   const [scrambledWord, setScrambledWord] = useState('');
 
@@ -35,11 +37,8 @@ const App: FC = () => {
     setScrambledWord(word);
   }, [randomWordIndex]);
 
-  console.log(scrambledWord);
-
   useEffect(() => {
     const loader = async () => {
-      const streamer = 'elevatelol';
       const chatClient = new ChatClient({
         channels: [streamer],
       });
@@ -47,13 +46,13 @@ const App: FC = () => {
         chatClient.onMessage(
           async (_channel: string, _user: string, message: string, msg) => {
             // eslint-disable-next-line no-shadow
-            const { mode, users, randomWordIndex } = useStore.getState();
+            const { mode, users } = useStore.getState();
             const userName = msg.userInfo.displayName.toLowerCase();
             if (mode === 'lobby') {
               if (message === '!join') {
-                // if (userName === streamer) {
-                //   return;
-                // }
+                if (userName === streamer) {
+                  return;
+                }
                 if (users.length >= 20) {
                   return;
                 }
@@ -129,58 +128,76 @@ const App: FC = () => {
               Stream Typers
             </Typography>
           </div>
-          <Typography variant="h6">Type !join in chat to join</Typography>
-          <Divider sx={{ width: 500, margin: 5 }} />
-          <Typography>Connected Players: {users.length} / 20</Typography>
-          <Reorder.Group axis="y" values={users} onReorder={setUsers}>
-            <List>
-              <AnimatePresence>
-                {users.map(item => (
-                  <Reorder.Item dragListener={false} key={item} value={item}>
-                    <Divider />
-                    <div
-                      style={{
-                        padding: 10,
-                        height: 50,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'flex-start',
-                      }}
-                    >
-                      <motion.div
-                        style={{
-                          width: '50vw',
-                          backgroundColor: userColors[item],
-                          height: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                        }}
+          <div style={{ padding: 20 }}>
+            <TextField
+              label="Twitch Username"
+              value={streamer}
+              onChange={e => {
+                setStreamer(e.target.value);
+                setUsers([]);
+              }}
+            />
+          </div>
+          {streamer && (
+            <>
+              <Typography variant="h6">Type !join in chat to join</Typography>
+              <Divider sx={{ width: 500, margin: 5 }} />
+              <Typography>Connected Players: {users.length} / 20</Typography>
+              <Reorder.Group axis="y" values={users} onReorder={setUsers}>
+                <List>
+                  <AnimatePresence>
+                    {users.map(item => (
+                      <Reorder.Item
+                        dragListener={false}
+                        key={item}
+                        value={item}
                       >
-                        <Typography
-                          variant="h6"
-                          style={{ padding: 10, color: 'black' }}
+                        <Divider />
+                        <div
+                          style={{
+                            padding: 10,
+                            height: 50,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'flex-start',
+                          }}
                         >
-                          {item}
-                        </Typography>
-                      </motion.div>
-                    </div>
-                    <Divider />
-                  </Reorder.Item>
-                ))}
-              </AnimatePresence>
-            </List>
-          </Reorder.Group>
-          <Button
-            variant="contained"
-            size="large"
-            disabled={users.length === 0}
-            onClick={() => {
-              setMode('game');
-            }}
-          >
-            Start
-          </Button>
+                          <motion.div
+                            style={{
+                              width: '50vw',
+                              backgroundColor: userColors[item],
+                              height: '100%',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                            }}
+                          >
+                            <Typography
+                              variant="h6"
+                              style={{ padding: 10, color: 'black' }}
+                            >
+                              {item}
+                            </Typography>
+                          </motion.div>
+                        </div>
+                        <Divider />
+                      </Reorder.Item>
+                    ))}
+                  </AnimatePresence>
+                </List>
+              </Reorder.Group>
+              <Button
+                variant="contained"
+                size="large"
+                disabled={users.length === 0}
+                onClick={() => {
+                  setMode('game');
+                }}
+              >
+                Start
+              </Button>
+            </>
+          )}
         </>
       )}
       {mode === 'game' && (

@@ -1,4 +1,4 @@
-import create, { GetState, SetState } from 'zustand';
+import create from 'zustand';
 import randomColor from 'randomcolor';
 import words from './words.json';
 
