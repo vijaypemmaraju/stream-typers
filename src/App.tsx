@@ -130,7 +130,7 @@ const App: FC = () => {
             </Typography>
           </div>
           <Typography variant="h6">Type !join in chat to join</Typography>
-          <Divider />
+          <Divider sx={{ width: 500, margin: 5 }} />
           <Typography>Connected Players: {users.length} / 20</Typography>
           <Reorder.Group axis="y" values={users} onReorder={setUsers}>
             <List>

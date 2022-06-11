@@ -8,7 +8,7 @@ const darkTheme = createTheme({
     mode: 'dark',
   },
   typography: {
-    fontFamily: 'monospace',
+    fontFamily: "'Roboto Mono', monospace",
     allVariants: {
       color: 'white',
     },
