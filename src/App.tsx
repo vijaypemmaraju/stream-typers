@@ -157,7 +157,12 @@ const App: FC = () => {
                           justifyContent: 'center',
                         }}
                       >
-                        <div style={{ padding: 10 }}>{item}</div>
+                        <Typography
+                          variant="h6"
+                          style={{ padding: 10, color: 'black' }}
+                        >
+                          {item}
+                        </Typography>
                       </motion.div>
                     </div>
                     <Divider />
@@ -168,6 +173,7 @@ const App: FC = () => {
           </Reorder.Group>
           <Button
             variant="contained"
+            size="large"
             disabled={users.length === 0}
             onClick={() => {
               setMode('game');
@@ -199,7 +205,9 @@ const App: FC = () => {
               <motion.div style={{ textAlign: 'center', width: '100%' }}>
                 <Typography variant="h2">{winner} is the winner!</Typography>
               </motion.div>
-              <Button onClick={() => location.reload()}>Play Again</Button>
+              <Button variant="contained" onClick={() => location.reload()}>
+                Play Again
+              </Button>
             </div>
           )}
           <Divider />
@@ -233,13 +241,19 @@ const App: FC = () => {
                         }}
                       >
                         {(userPoints[item] || 0) > 50 && (
-                          <Typography style={{ padding: 10 }}>
+                          <Typography
+                            variant="h6"
+                            style={{ padding: 10, color: 'black' }}
+                          >
                             {item}
                           </Typography>
                         )}
                       </motion.div>
                       {(userPoints[item] || 0) < 50 && (
-                        <Typography style={{ paddingLeft: 10 }}>
+                        <Typography
+                          variant="h6"
+                          style={{ paddingLeft: 10, color: 'white' }}
+                        >
                           {item}
                         </Typography>
                       )}

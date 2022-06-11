@@ -4,9 +4,23 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import App from './App';
 
 const darkTheme = createTheme({
-  palette: {},
+  palette: {
+    mode: 'dark',
+  },
   typography: {
     fontFamily: 'monospace',
+    allVariants: {
+      color: 'white',
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontSize: '1.5rem',
+        },
+      },
+    },
   },
 });
 
