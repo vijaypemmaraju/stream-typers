@@ -102,7 +102,7 @@ const App: FC = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100vh',
+        minHeight: '100vh',
         width: '100vw',
         maxWidth: '100vw',
       }}
@@ -140,7 +140,7 @@ const App: FC = () => {
           </div>
           {streamer && (
             <>
-              <Typography variant="h6">Type !join in chat to join</Typography>
+              <Typography variant="h5">Type !join in chat</Typography>
               <Divider sx={{ width: 500, margin: 5 }} />
               <Typography>Connected Players: {users.length} / 20</Typography>
               <Reorder.Group axis="y" values={users} onReorder={setUsers}>
@@ -186,16 +186,19 @@ const App: FC = () => {
                   </AnimatePresence>
                 </List>
               </Reorder.Group>
-              <Button
-                variant="contained"
-                size="large"
-                disabled={users.length === 0}
-                onClick={() => {
-                  setMode('game');
-                }}
-              >
-                Start
-              </Button>
+              <div style={{ padding: 20 }}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  disabled={users.length === 0}
+                  onClick={() => {
+                    setMode('game');
+                    document.body.scrollTop = 0;
+                  }}
+                >
+                  Start
+                </Button>
+              </div>
             </>
           )}
         </>
@@ -203,7 +206,9 @@ const App: FC = () => {
       {mode === 'game' && (
         <div style={{ width: '100vw', height: '100vh' }}>
           {!winner && (
-            <motion.div style={{ textAlign: 'center', width: '100%' }}>
+            <motion.div
+              style={{ textAlign: 'center', width: '100%', padding: 10 }}
+            >
               <Typography variant="h2">
                 Unscramble the word and type in chat: {scrambledWord}
               </Typography>
@@ -259,7 +264,7 @@ const App: FC = () => {
                       >
                         {(userPoints[item] || 0) > 50 && (
                           <Typography
-                            variant="h6"
+                            variant="h4"
                             style={{ padding: 10, color: 'black' }}
                           >
                             {item}
@@ -268,7 +273,7 @@ const App: FC = () => {
                       </motion.div>
                       {(userPoints[item] || 0) < 50 && (
                         <Typography
-                          variant="h6"
+                          variant="h4"
                           style={{ paddingLeft: 10, color: 'white' }}
                         >
                           {item}
