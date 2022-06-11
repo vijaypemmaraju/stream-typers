@@ -1,20 +1,7 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
-import { ApiClient } from '@twurple/api';
+import React, { FC, useEffect, useState } from 'react';
 import { ChatClient } from '@twurple/chat';
-import { StaticAuthProvider } from '@twurple/auth';
-import {
-  Box,
-  Button,
-  Container,
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  Paper,
-  Typography,
-} from '@mui/material';
+import { Button, Divider, List, Typography } from '@mui/material';
 import { AnimatePresence, motion, Reorder } from 'framer-motion';
-import { accessToken, clientId } from './creds';
 import words from './words.json';
 import useStore from './useStore';
 
@@ -123,9 +110,25 @@ const App: FC = () => {
     >
       {mode === 'lobby' && (
         <>
-          <Typography variant="h1" sx={{ margin: 4 }}>
-            Stream Typers
-          </Typography>
+          <div
+            style={{
+              width: 'fit-content',
+            }}
+          >
+            <Typography
+              variant="h1"
+              sx={{
+                margin: 4,
+                overflow: 'hidden',
+                borderRight: '.1em solid orange',
+                whiteSpace: 'nowrap',
+                letterSpacing: '.175em',
+                animation: `typing 2.5s steps(14, end), blink-caret .75s step-end infinite`,
+              }}
+            >
+              Stream Typers
+            </Typography>
+          </div>
           <Typography variant="h6">Type !join in chat to join</Typography>
           <Divider />
           <Typography>Connected Players: {users.length} / 20</Typography>
@@ -165,6 +168,7 @@ const App: FC = () => {
           </Reorder.Group>
           <Button
             variant="contained"
+            disabled={users.length === 0}
             onClick={() => {
               setMode('game');
             }}

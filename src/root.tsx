@@ -5,6 +5,9 @@ import App from './App';
 
 const darkTheme = createTheme({
   palette: {},
+  typography: {
+    fontFamily: 'monospace',
+  },
 });
 
 const Root: FC = () => (
