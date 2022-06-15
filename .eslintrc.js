@@ -31,6 +31,7 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': 'off',
     'react/function-component-definition': 'off',
     'react/no-array-index-key': 'off',
+    'react/require-default-props': 'off',
     'no-continue': 'off',
     'max-len': 'off',
     'no-undef': 'off',

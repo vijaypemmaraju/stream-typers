@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { AnimatePresence, motion, Reorder } from 'framer-motion';
 import useStore from './useStore';
 import Unscramble from './modules/Unscramble';
+import Flag from './modules/Flag';
 
 const Game: FC = () => {
   const users = useStore(store => store.users);
@@ -13,9 +14,10 @@ const Game: FC = () => {
   return (
     <div className="w-[100vw] h-[100vh]">
       {!winner && (
-        <motion.div className="text-center w-full p-2">
+        <div className="flex justify-evenly">
           <Unscramble />
-        </motion.div>
+          <Flag />
+        </div>
       )}
       {winner && (
         <div className="flex flex-col items-center justify-center">
