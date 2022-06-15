@@ -14,11 +14,7 @@ const Lobby: FC = () => {
   const setStreamer = usePersistedStore(store => store.setStreamer);
   return (
     <>
-      <div
-        style={{
-          width: 'fit-content',
-        }}
-      >
+      <div className="w-fit">
         <Typography
           variant="h1"
           sx={{
@@ -33,7 +29,7 @@ const Lobby: FC = () => {
           Stream Typers
         </Typography>
       </div>
-      <div style={{ padding: 20 }}>
+      <div className="p-5">
         <TextField
           label="Twitch Username"
           value={streamer}
@@ -54,29 +50,14 @@ const Lobby: FC = () => {
                 {users.map(item => (
                   <Reorder.Item dragListener={false} key={item} value={item}>
                     <Divider />
-                    <div
-                      style={{
-                        padding: 10,
-                        height: 50,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'flex-start',
-                      }}
-                    >
+                    <div className="flex align-center justify-start items-center h-[50px] p-3">
                       <motion.div
+                        className="flex align-center justify-center items-center w-[50vw] h-full"
                         style={{
-                          width: '50vw',
                           backgroundColor: userColors[item],
-                          height: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
                         }}
                       >
-                        <Typography
-                          variant="h6"
-                          style={{ padding: 10, color: 'black' }}
-                        >
+                        <Typography variant="h6" className="p-3 text-black">
                           {item}
                         </Typography>
                       </motion.div>
@@ -87,7 +68,7 @@ const Lobby: FC = () => {
               </AnimatePresence>
             </List>
           </Reorder.Group>
-          <div style={{ padding: 20 }}>
+          <div className="p-5">
             <Button
               variant="contained"
               size="large"

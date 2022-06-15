@@ -90,17 +90,7 @@ const App: FC = () => {
   }, [streamer]);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '100vh',
-        width: '100vw',
-        maxWidth: '100vw',
-      }}
-    >
+    <div className="flex flex-col justify-center items-center">
       {mode === 'lobby' && <Lobby />}
       {mode === 'game' && <Game scrambledWord={scrambledWord} />}
     </div>

@@ -14,41 +14,18 @@ const Game: FC<GameProps> = ({ scrambledWord }) => {
   const winner = useStore(store => store.winner);
 
   return (
-    <div
-      style={{
-        width: '100vw',
-        height: '100vh',
-      }}
-    >
+    <div className="w-[100vw] h-[100vh]">
       {!winner && (
-        <motion.div
-          style={{
-            textAlign: 'center',
-            width: '100%',
-            padding: 10,
-          }}
-        >
+        <motion.div className="text-center w-full p-2">
           <Typography variant="h2">
             Unscramble the word and type in chat: {scrambledWord}
           </Typography>
         </motion.div>
       )}
       {winner && (
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
+        <div className="flex flex-col items-center justify-center">
           <Divider />
-          <motion.div
-            style={{
-              textAlign: 'center',
-              width: '100%',
-            }}
-          >
+          <motion.div className="text-center w-full">
             <Typography variant="h2">{winner} is the winner!</Typography>
           </motion.div>
           <Button variant="contained" onClick={() => location.reload()}>
@@ -63,22 +40,11 @@ const Game: FC<GameProps> = ({ scrambledWord }) => {
             {users.map(item => (
               <Reorder.Item dragListener={false} key={item} value={item}>
                 <Divider />
-                <div
-                  style={{
-                    padding: 10,
-                    height: 100,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'flex-start',
-                  }}
-                >
+                <div className="flex align-center justify-start items-center h-[100px] p-3">
                   <motion.div
+                    className="flex align-center justify-end"
                     style={{
                       backgroundColor: item,
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'flex-end',
                     }}
                     animate={{
                       width:
@@ -86,25 +52,13 @@ const Game: FC<GameProps> = ({ scrambledWord }) => {
                     }}
                   >
                     {(userPoints.item || 0) > 50 && (
-                      <Typography
-                        variant="h4"
-                        style={{
-                          padding: 10,
-                          color: 'black',
-                        }}
-                      >
+                      <Typography variant="h4" className="p-3 text-black">
                         {item}
                       </Typography>
                     )}
                   </motion.div>
                   {(userPoints.item || 0) < 50 && (
-                    <Typography
-                      variant="h4"
-                      style={{
-                        paddingLeft: 10,
-                        color: 'white',
-                      }}
-                    >
+                    <Typography variant="h4" className="p-3 text-white">
                       {item}
                     </Typography>
                   )}

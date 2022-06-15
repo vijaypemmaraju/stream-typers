@@ -47,7 +47,7 @@ const useStore = create<Store>((set, get) => ({
       },
     });
   },
-  mode: 'game',
+  mode: 'lobby',
   randomWordIndex: Math.floor(Math.random() * words.length),
   setUsers: users => set({ users }),
   setMode: mode => set({ mode }),
