@@ -35,6 +35,10 @@ const App: FC = () => {
     const loader = async () => {
       const chatClient = new ChatClient({
         channels: [streamer],
+        logger: {
+          custom: console.log,
+          minLevel: 0,
+        },
       });
       chatClient.connect().then(() => {
         chatClient.onMessage(
