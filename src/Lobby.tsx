@@ -50,14 +50,14 @@ const Lobby: FC = () => {
                 {users.map(item => (
                   <Reorder.Item dragListener={false} key={item} value={item}>
                     <Divider />
-                    <div className="flex align-center justify-start items-center h-[50px] p-3">
+                    <div className="flex align-center justify-start items-center p-3">
                       <motion.div
-                        className="flex align-center justify-center items-center w-[50vw] h-full"
+                        className="flex align-center justify-center items-center w-[50vw] h-full p-3"
                         style={{
                           backgroundColor: userColors[item],
                         }}
                       >
-                        <Typography variant="h6" className="p-3 text-black">
+                        <Typography variant="h6" style={{ color: 'black' }}>
                           {item}
                         </Typography>
                       </motion.div>

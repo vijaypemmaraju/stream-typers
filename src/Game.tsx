@@ -52,7 +52,11 @@ const Game: FC<GameProps> = ({ scrambledWord }) => {
                     }}
                   >
                     {(userPoints.item || 0) > 50 && (
-                      <Typography variant="h4" className="p-3 text-black">
+                      <Typography
+                        variant="h4"
+                        className="p-3"
+                        style={{ color: 'black' }}
+                      >
                         {item}
                       </Typography>
                     )}
