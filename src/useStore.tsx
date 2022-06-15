@@ -20,9 +20,15 @@ type Store = {
 // eslint-disable-next-line import/prefer-default-export
 
 const useStore = create<Store>((set, get) => ({
-  users: [],
+  users: ['ryan', 'felix', 'james', 'joe', 'elevatelol'],
   userPoints: {},
-  userColors: {},
+  userColors: {
+    ryan: randomColor({ luminosity: 'light' }),
+    felix: randomColor({ luminosity: 'light' }),
+    james: randomColor({ luminosity: 'light' }),
+    joe: randomColor({ luminosity: 'light' }),
+    elevatelol: randomColor({ luminosity: 'light' }),
+  },
   addPointsForUser: (user: string, points: number) => {
     const { userPoints } = get();
     set({
@@ -41,7 +47,7 @@ const useStore = create<Store>((set, get) => ({
       },
     });
   },
-  mode: 'lobby',
+  mode: 'game',
   randomWordIndex: Math.floor(Math.random() * words.length),
   setUsers: users => set({ users }),
   setMode: mode => set({ mode }),
