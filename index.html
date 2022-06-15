@@ -1,0 +1,63 @@
+<html data-theme="dark">
+
+<head>
+  <title>Stream Typers</title>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./output.css">
+  <style>
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      outline: 0;
+      font-family: 'Roboto Mono', monospace;
+
+      overflow-x: hidden;
+    }
+
+    #ui {}
+
+    /* The typing effect */
+    @keyframes typing {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
+    }
+
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+
+      from,
+      to {
+        border-color: transparent
+      }
+
+      50% {
+        border-color: orange;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="ui" />
+  <script src="./index.js"></script>
+</body>
+
+</html>
