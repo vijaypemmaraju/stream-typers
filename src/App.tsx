@@ -90,7 +90,7 @@ const App: FC = () => {
   }, [streamer]);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center prose">
       {mode === 'lobby' && <Lobby />}
       {mode === 'game' && <Game scrambledWord={scrambledWord} />}
     </div>

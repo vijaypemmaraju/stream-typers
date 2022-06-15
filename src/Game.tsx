@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Button, Divider, List, Typography } from '@mui/material';
 import { AnimatePresence, motion, Reorder } from 'framer-motion';
 import useStore from './useStore';
 
@@ -17,61 +16,57 @@ const Game: FC<GameProps> = ({ scrambledWord }) => {
     <div className="w-[100vw] h-[100vh]">
       {!winner && (
         <motion.div className="text-center w-full p-2">
-          <Typography variant="h2">
+          <h1 className="font-light">
             Unscramble the word and type in chat: {scrambledWord}
-          </Typography>
+          </h1>
         </motion.div>
       )}
       {winner && (
         <div className="flex flex-col items-center justify-center">
-          <Divider />
+          <div className="divider" />
           <motion.div className="text-center w-full">
-            <Typography variant="h2">{winner} is the winner!</Typography>
+            <h2>{winner} is the winner!</h2>
           </motion.div>
-          <Button variant="contained" onClick={() => location.reload()}>
+          <button
+            type="button"
+            className="btn"
+            onClick={() => location.reload()}
+          >
             Play Again
-          </Button>
+          </button>
         </div>
       )}
-      <Divider />
-      <Reorder.Group axis="y" values={users} onReorder={setUsers}>
-        <List>
-          <AnimatePresence>
-            {users.map(item => (
-              <Reorder.Item dragListener={false} key={item} value={item}>
-                <Divider />
-                <div className="flex align-center justify-start items-center h-[100px] p-3">
-                  <motion.div
-                    className="flex align-center justify-end"
-                    style={{
-                      backgroundColor: item,
-                    }}
-                    animate={{
-                      width:
-                        ((userPoints.item || 0) / 1000) * window.innerWidth,
-                    }}
-                  >
-                    {(userPoints.item || 0) > 50 && (
-                      <Typography
-                        variant="h4"
-                        className="p-3"
-                        style={{ color: 'black' }}
-                      >
-                        {item}
-                      </Typography>
-                    )}
-                  </motion.div>
-                  {(userPoints.item || 0) < 50 && (
-                    <Typography variant="h4" className="p-3 text-white">
-                      {item}
-                    </Typography>
+      <Reorder.Group
+        axis="y"
+        values={users}
+        onReorder={setUsers}
+        className="list-none pl-0"
+      >
+        <AnimatePresence>
+          {users.map(item => (
+            <Reorder.Item dragListener={false} key={item} value={item}>
+              <div className="divider" />
+              <div className="flex align-center justify-start items-center h-[100px] p-3">
+                <motion.div
+                  className="flex align-center justify-end"
+                  style={{
+                    backgroundColor: item,
+                  }}
+                  animate={{
+                    width: ((userPoints.item || 0) / 1000) * window.innerWidth,
+                  }}
+                >
+                  {(userPoints.item || 0) > 50 && (
+                    <h2 className="p-3 font-normal text-black">{item}</h2>
                   )}
-                </div>
-                <Divider />
-              </Reorder.Item>
-            ))}
-          </AnimatePresence>
-        </List>
+                </motion.div>
+                {(userPoints.item || 0) < 50 && (
+                  <h2 className="p-3 font-normal text-white">{item}</h2>
+                )}
+              </div>
+            </Reorder.Item>
+          ))}
+        </AnimatePresence>
       </Reorder.Group>
     </div>
   );

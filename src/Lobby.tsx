@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Button, Divider, List, TextField, Typography } from '@mui/material';
 import { AnimatePresence, motion, Reorder } from 'framer-motion';
 import useStore from './useStore';
 import usePersistedStore from './usePersistedStore';
@@ -15,63 +14,73 @@ const Lobby: FC = () => {
   return (
     <>
       <div className="w-fit">
-        <Typography
-          variant="h1"
-          sx={{
+        <h1
+          style={{
+            fontSize: 84,
+            fontWeight: 'lighter',
             margin: 4,
             overflow: 'hidden',
             borderRight: '.1em solid orange',
             whiteSpace: 'nowrap',
-            letterSpacing: '.175em',
-            animation: `typing 2.5s steps(14, end), blink-caret .75s step-end infinite`,
+            letterSpacing: '.15em',
+            animation: `typing 2.5s steps(13, end), blink-caret .75s step-end infinite`,
           }}
         >
           Stream Typers
-        </Typography>
+        </h1>
       </div>
       <div className="p-5">
-        <TextField
-          label="Twitch Username"
-          value={streamer}
-          onChange={e => {
-            setStreamer(e.target.value);
-            setUsers([]);
-          }}
-        />
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text">Twitch Username</span>
+          </label>
+          <input
+            type="text"
+            className="input input-bordered w-full max-w-xs"
+            onChange={e => {
+              setStreamer(e.target.value);
+              setUsers([]);
+            }}
+          />
+        </div>
       </div>
       {streamer && (
         <>
-          <Typography variant="h5">Type !join in chat</Typography>
-          <Divider sx={{ width: 500, margin: 5 }} />
-          <Typography>Connected Players: {users.length} / 20</Typography>
-          <Reorder.Group axis="y" values={users} onReorder={setUsers}>
-            <List>
-              <AnimatePresence>
-                {users.map(item => (
-                  <Reorder.Item dragListener={false} key={item} value={item}>
-                    <Divider />
-                    <div className="flex align-center justify-start items-center p-3">
-                      <motion.div
-                        className="flex align-center justify-center items-center w-[50vw] h-full p-3"
-                        style={{
-                          backgroundColor: userColors[item],
-                        }}
-                      >
-                        <Typography variant="h6" style={{ color: 'black' }}>
-                          {item}
-                        </Typography>
-                      </motion.div>
-                    </div>
-                    <Divider />
-                  </Reorder.Item>
-                ))}
-              </AnimatePresence>
-            </List>
+          <h3>Type !join in chat</h3>
+          <div className="divider" />
+          <div className="stats bg-gray-900">
+            <div className="stat">
+              <div className="stat-title">Connected Players</div>
+              <div className="stat-value">{users.length} / 20</div>
+            </div>
+          </div>
+          <Reorder.Group
+            axis="y"
+            values={users}
+            onReorder={setUsers}
+            className="list-none pl-0"
+          >
+            <AnimatePresence>
+              {users.map(item => (
+                <Reorder.Item dragListener={false} key={item} value={item}>
+                  <div className="flex align-center justify-start items-center p-3">
+                    <motion.div
+                      className="flex align-center justify-center items-center w-[50vw] h-full p-3"
+                      style={{
+                        backgroundColor: userColors[item],
+                      }}
+                    >
+                      <h6 className="text-black">{item}</h6>
+                    </motion.div>
+                  </div>
+                </Reorder.Item>
+              ))}
+            </AnimatePresence>
           </Reorder.Group>
           <div className="p-5">
-            <Button
-              variant="contained"
-              size="large"
+            <button
+              type="button"
+              className="btn"
               disabled={users.length === 0}
               onClick={() => {
                 setMode('game');
@@ -79,7 +88,7 @@ const Lobby: FC = () => {
               }}
             >
               Start
-            </Button>
+            </button>
           </div>
         </>
       )}

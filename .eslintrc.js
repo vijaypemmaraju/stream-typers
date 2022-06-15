@@ -28,6 +28,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'warn',
     'no-restricted-globals': 'off',
     'react/jsx-filename-extension': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
     'react/function-component-definition': 'off',
     'react/no-array-index-key': 'off',
     'no-continue': 'off',
