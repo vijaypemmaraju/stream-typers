@@ -37,6 +37,7 @@ const Lobby: FC = () => {
           <input
             type="text"
             className="input input-bordered w-full max-w-xs"
+            value={streamer}
             onChange={e => {
               setStreamer(e.target.value);
               setUsers([]);

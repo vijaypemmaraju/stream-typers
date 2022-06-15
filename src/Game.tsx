@@ -1,14 +1,12 @@
 import React, { FC } from 'react';
 import { AnimatePresence, motion, Reorder } from 'framer-motion';
 import useStore from './useStore';
+import Unscramble from './modules/Unscramble';
 
-type GameProps = {
-  scrambledWord: string;
-};
-
-const Game: FC<GameProps> = ({ scrambledWord }) => {
+const Game: FC = () => {
   const users = useStore(store => store.users);
   const userPoints = useStore(store => store.userPoints);
+  const userColors = useStore(store => store.userColors);
   const setUsers = useStore(store => store.setUsers);
   const winner = useStore(store => store.winner);
 
@@ -16,9 +14,7 @@ const Game: FC<GameProps> = ({ scrambledWord }) => {
     <div className="w-[100vw] h-[100vh]">
       {!winner && (
         <motion.div className="text-center w-full p-2">
-          <h1 className="font-light">
-            Unscramble the word and type in chat: {scrambledWord}
-          </h1>
+          <Unscramble />
         </motion.div>
       )}
       {winner && (
@@ -48,20 +44,20 @@ const Game: FC<GameProps> = ({ scrambledWord }) => {
               <div className="divider" />
               <div className="flex align-center justify-start items-center h-[100px] p-3">
                 <motion.div
-                  className="flex align-center justify-end"
+                  className="flex align-center justify-end h-full"
                   style={{
-                    backgroundColor: item,
+                    backgroundColor: userColors[item],
                   }}
                   animate={{
-                    width: ((userPoints.item || 0) / 1000) * window.innerWidth,
+                    width: ((userPoints[item] || 0) / 1000) * window.innerWidth,
                   }}
                 >
                   {(userPoints.item || 0) > 50 && (
-                    <h2 className="p-3 font-normal text-black">{item}</h2>
+                    <h2 className="m-0 pl-3 font-normal text-black">{item}</h2>
                   )}
                 </motion.div>
                 {(userPoints.item || 0) < 50 && (
-                  <h2 className="p-3 font-normal text-white">{item}</h2>
+                  <h2 className="m-0 pl-3 font-normal text-white">{item}</h2>
                 )}
               </div>
             </Reorder.Item>
