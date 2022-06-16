@@ -64,18 +64,6 @@
     {
       "category": "Geography",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "What are the four corner states of the US?",
-      "correct_answer": "Utah, Colorado, Arizona, New Mexico",
-      "incorrect_answers": [
-        "Oregon, Idaho, Nevada, Utah",
-        "Kansas, Oklahoma, Arkansas, Louisiana",
-        "South Dakota, Minnesota, Nebraska, Iowa"
-      ]
-    },
-    {
-      "category": "Geography",
-      "type": "multiple",
       "difficulty": "hard",
       "question": "Which country is completely landlocked by South Africa?",
       "correct_answer": "Lesotho",
@@ -184,30 +172,6 @@
     {
       "category": "History",
       "type": "multiple",
-      "difficulty": "easy",
-      "question": "When did the Battle of the Somme begin?",
-      "correct_answer": "July 1st, 1916",
-      "incorrect_answers": [
-        "August 1st, 1916",
-        "July 2nd, 1916",
-        "June 30th, 1916"
-      ]
-    },
-    {
-      "category": "Entertainment: Music",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "In Mean Girls, who has breasts that tell when it&#039;s raining?",
-      "correct_answer": "Karen Smith",
-      "incorrect_answers": [
-        "Gretchen Weiners",
-        "Janice Ian",
-        "Cady Heron"
-      ]
-    },
-    {
-      "category": "History",
-      "type": "multiple",
       "difficulty": "medium",
       "question": "Against which country did the Dutch Republic fight the Eighty Years&#039; War?",
       "correct_answer": "Spain",
@@ -227,18 +191,6 @@
         "Russia",
         "Iran",
         "United States"
-      ]
-    },
-    {
-      "category": "General Knowledge",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "Which one of these is not a typical European sword design?",
-      "correct_answer": "Scimitar",
-      "incorrect_answers": [
-        "Falchion",
-        "Ulfberht",
-        "Flamberge"
       ]
     },
     {
@@ -338,54 +290,6 @@
       ]
     },
     {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "Which of these characters wasn&#039;t a villian in Club Penguin?",
-      "correct_answer": "The Director",
-      "incorrect_answers": [
-        "Herbert P. Bear",
-        "Tusk",
-        "Ultimate Proto-Bot 10000"
-      ]
-    },
-    {
-      "category": "Science & Nature",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "The Sun consists of mostly which two elements?",
-      "correct_answer": "Hydrogen &amp; Helium",
-      "incorrect_answers": [
-        "Hydrogen &amp; Nitrogen",
-        "Carbon &amp; Nitrogen",
-        "Carbon &amp; Helium"
-      ]
-    },
-    {
-      "category": "General Knowledge",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "If someone said &quot;you are olid&quot;, what would they mean?",
-      "correct_answer": "You smell extremely unpleasant.",
-      "incorrect_answers": [
-        "You are out of shape\/weak.",
-        "Your appearance is repulsive.",
-        "You are incomprehensible\/an idiot."
-      ]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "In the Kingdom Hearts series, which is not an optional boss you can fight?",
-      "correct_answer": "Master Yen Sid",
-      "incorrect_answers": [
-        "Sephiroth",
-        "Julius",
-        "Kurt Zisa"
-      ]
-    },
-    {
       "category": "Entertainment: Books",
       "type": "multiple",
       "difficulty": "hard",
@@ -407,30 +311,6 @@
         "Cough",
         "Yawn",
         "Hiccup"
-      ]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "hard",
-      "question": "In Disney&#039;s &quot;Toontown Online&quot;, which of these species wasn&#039;t available as a Toon?",
-      "correct_answer": "Cow",
-      "incorrect_answers": [
-        "Monkey",
-        "Bear",
-        "Pig"
-      ]
-    },
-    {
-      "category": "Entertainment: Video Games",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "In Fallout: New Vegas, which one of these casinos can you not play in?",
-      "correct_answer": "Lucky 38",
-      "incorrect_answers": [
-        "The Tops",
-        "Gammorah",
-        "Ultra-Luxe"
       ]
     },
     {
@@ -467,18 +347,6 @@
         "Venice",
         "Milan",
         "Rome"
-      ]
-    },
-    {
-      "category": "History",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "Abolitionist John Brown raided the arsenal in which Virginia Town?",
-      "correct_answer": "Harper&#039;s Ferry",
-      "incorrect_answers": [
-        "Richmond",
-        "Harrisonburg",
-        "Martinsburg"
       ]
     },
     {
