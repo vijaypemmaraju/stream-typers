@@ -9,9 +9,10 @@ const Flag: FC = () => {
 
   return (
     <Module
-      prompt="Identify the flag"
+      prompt="Identify the Flag"
       answer={flags[randomFlagIndex].name}
       text={flags[randomFlagIndex].emoji}
+      textClassName="text-[72px] mt-2"
     />
   );
 };

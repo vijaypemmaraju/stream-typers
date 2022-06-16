@@ -2831,6 +2831,10 @@ html {
   margin: 0.5rem;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -2861,6 +2865,10 @@ html {
 
 .h-\[75\%\] {
   height: 75%;
+}
+
+.h-\[80\%\] {
+  height: 80%;
 }
 
 .w-\[100vw\] {
@@ -2905,12 +2913,40 @@ html {
   width: 300px;
 }
 
+.w-\[80\%\] {
+  width: 80%;
+}
+
+.w-\[70\%\] {
+  width: 70%;
+}
+
 .min-w-\[300px\] {
   min-width: 300px;
 }
 
+.min-w-\[500px\] {
+  min-width: 500px;
+}
+
 .max-w-xs {
   max-width: 20rem;
+}
+
+.max-w-\[300px\] {
+  max-width: 300px;
+}
+
+.max-w-\[500px\] {
+  max-width: 500px;
+}
+
+.max-w-\[400px\] {
+  max-width: 400px;
+}
+
+.max-w-\[350px\] {
+  max-width: 350px;
 }
 
 .list-none {
@@ -2957,6 +2993,14 @@ html {
   gap: 1rem;
 }
 
+.gap-8 {
+  gap: 2rem;
+}
+
+.whitespace-normal {
+  white-space: normal;
+}
+
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
@@ -2991,6 +3035,10 @@ html {
   padding-left: 0.75rem;
 }
 
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -2998,6 +3046,43 @@ html {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-\[50px\] {
+  font-size: 50px;
+}
+
+.text-\[100px\] {
+  font-size: 100px;
+}
+
+.text-\[72px\] {
+  font-size: 72px;
 }
 
 .font-light {

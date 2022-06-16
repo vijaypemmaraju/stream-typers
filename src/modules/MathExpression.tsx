@@ -7,7 +7,7 @@ const operators = ['+', '-', '*'];
 const MathExpression: FC = () => {
   const [randomNumbers] = useState(
     Array.from(
-      { length: Math.floor(Math.random() * 3) + 2 },
+      { length: Math.floor(Math.random() * 2) + 3 },
       () => Math.floor(Math.random() * 20) + 1,
     ),
   );
@@ -31,7 +31,7 @@ const MathExpression: FC = () => {
   console.log(mexp.eval(expression));
   return (
     <Module
-      prompt="Solve the expression"
+      prompt="Solve the Expression"
       answer={mexp.eval(expression).toString()}
       text={expression}
     />

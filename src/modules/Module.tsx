@@ -10,6 +10,7 @@ type ModuleProps = {
   answer: string;
   predicate?: (message: string) => boolean;
   onComplete?: (message: string) => void;
+  textClassName?: string;
 };
 
 const Module: FC<ModuleProps> = ({
@@ -18,6 +19,7 @@ const Module: FC<ModuleProps> = ({
   answer,
   onComplete,
   predicate = message => message === answer.toLowerCase(),
+  textClassName,
 }) => {
   const [winner, setWinner] = useState('');
   const addPointsForUser = useStore(store => store.addPointsForUser);
@@ -46,16 +48,20 @@ const Module: FC<ModuleProps> = ({
   return (
     <motion.div
       className={cx(
-        'stats shadow text-center min-w-[300px] box-border transition-all duration-500',
+        'stats shadow text-center min-w-[300px] w-width-[300px] box-border transition-all duration-500',
         winner ? 'bg-green-900' : 'bg-gray-900',
       )}
     >
-      <div className="stat min-w-[300px]">
+      <div className="stat min-w-[300px] max-w-[300px]">
         <div className="stat-title font-semibold">
           {winner && answer}
           {!winner && prompt}
         </div>
-        <div className="stat-value">{text}</div>
+        <div
+          className={cx('stat-value whitespace-normal text-2xl', textClassName)}
+        >
+          {text}
+        </div>
         <div className="stat-desc font-semibold text-lg p-2">{winner}</div>
       </div>
     </motion.div>
