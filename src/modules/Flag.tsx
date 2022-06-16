@@ -1,19 +1,17 @@
 import React, { FC, useState } from 'react';
-import emojiFlags from 'emoji-flags';
+import flags from './flags.json';
 import Module from './Module';
 
 const Flag: FC = () => {
-  const [randomFlagIndex] = useState(
-    Math.floor(Math.random() * emojiFlags.data.length),
-  );
+  const [randomFlagIndex] = useState(Math.floor(Math.random() * flags.length));
 
-  console.log(emojiFlags.data[randomFlagIndex].name);
+  console.log(flags[randomFlagIndex].name);
 
   return (
     <Module
       prompt="Identify the flag"
-      answer={emojiFlags.data[randomFlagIndex].name}
-      text={emojiFlags.data[randomFlagIndex].emoji}
+      answer={flags[randomFlagIndex].name}
+      text={flags[randomFlagIndex].emoji}
     />
   );
 };
