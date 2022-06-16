@@ -1,22 +1,33 @@
-import React, { FC } from 'react';
-import { AnimatePresence, motion, Reorder } from 'framer-motion';
+import React, { FC, useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import useStore from './useStore';
 import Unscramble from './modules/Unscramble';
 import Flag from './modules/Flag';
 
+const moduleComponents = [Unscramble, Flag];
+
 const Game: FC = () => {
-  const users = useStore(store => store.users);
-  const userPoints = useStore(store => store.userPoints);
-  const userColors = useStore(store => store.userColors);
-  const setUsers = useStore(store => store.setUsers);
   const winner = useStore(store => store.winner);
+  const [modules, setModules] = useState<FC[]>([]);
+
+  useEffect(() => {
+    // create 5 modules
+    const chosenModules: FC[] = [];
+    for (let i = 0; i < 20; i += 1) {
+      chosenModules.push(
+        moduleComponents[Math.floor(Math.random() * moduleComponents.length)],
+      );
+    }
+    setModules(chosenModules);
+  }, []);
 
   return (
-    <div className="w-[100vw] h-[100vh]">
+    <div className="w-[100vw] h-[100vh] flex justify-center items-center">
       {!winner && (
-        <div className="flex justify-evenly">
-          <Unscramble />
-          <Flag />
+        <div className="flex flex-wrap gap-4 w-[75%] h-[75%] justify-center items-center">
+          {modules.map((Module, index) => (
+            <Module key={index} />
+          ))}
         </div>
       )}
       {winner && (
@@ -34,38 +45,7 @@ const Game: FC = () => {
           </button>
         </div>
       )}
-      <Reorder.Group
-        axis="y"
-        values={users}
-        onReorder={setUsers}
-        className="list-none pl-0"
-      >
-        <AnimatePresence>
-          {users.map(item => (
-            <Reorder.Item dragListener={false} key={item} value={item}>
-              <div className="divider" />
-              <div className="flex align-center justify-start items-center h-[100px] p-3">
-                <motion.div
-                  className="flex align-center justify-end h-full"
-                  style={{
-                    backgroundColor: userColors[item],
-                  }}
-                  animate={{
-                    width: ((userPoints[item] || 0) / 1000) * window.innerWidth,
-                  }}
-                >
-                  {(userPoints.item || 0) > 50 && (
-                    <h2 className="m-0 pl-3 font-normal text-black">{item}</h2>
-                  )}
-                </motion.div>
-                {(userPoints.item || 0) < 50 && (
-                  <h2 className="m-0 pl-3 font-normal text-white">{item}</h2>
-                )}
-              </div>
-            </Reorder.Item>
-          ))}
-        </AnimatePresence>
-      </Reorder.Group>
+      {/* <Users /> */}
     </div>
   );
 };

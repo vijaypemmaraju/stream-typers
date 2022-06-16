@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import { motion } from 'framer-motion';
 import React, { FC, useState } from 'react';
 import useIncomingChat from '../hooks/useIncomingChat';
 import useStore from '../useStore';
@@ -43,21 +44,21 @@ const Module: FC<ModuleProps> = ({
   });
 
   return (
-    <div
+    <motion.div
       className={cx(
-        'stats shadow text-center m-2',
+        'stats shadow text-center w-[250px] box-border transition-all duration-500',
         winner ? 'bg-green-900' : 'bg-gray-900',
       )}
     >
-      <div className="stat">
+      <div className="stat w-[250px]">
         <div className="stat-title font-semibold">
           {winner && answer}
           {!winner && prompt}
         </div>
         <div className="stat-value">{text}</div>
-        <div className="stat-desc font-semibold">{winner}</div>
+        <div className="stat-desc font-semibold text-lg p-2">{winner}</div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

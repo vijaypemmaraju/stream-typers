@@ -1,8 +1,5 @@
-import cx from 'classnames';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import emojiFlags from 'emoji-flags';
-import useIncomingChat from '../hooks/useIncomingChat';
-import useStore from '../useStore';
 import Module from './Module';
 
 const Flag: FC = () => {
