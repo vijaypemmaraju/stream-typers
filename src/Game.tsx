@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 import useStore from './useStore';
 import Unscramble from './modules/Unscramble';
 import Flag from './modules/Flag';
+import MathExpression from './modules/MathExpression';
 
-const moduleComponents = [Unscramble, Flag];
+const moduleComponents = [Unscramble, Flag, MathExpression];
 
 const Game: FC = () => {
   const winner = useStore(store => store.winner);

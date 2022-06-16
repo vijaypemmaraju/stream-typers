@@ -46,11 +46,11 @@ const Module: FC<ModuleProps> = ({
   return (
     <motion.div
       className={cx(
-        'stats shadow text-center w-[250px] box-border transition-all duration-500',
+        'stats shadow text-center min-w-[300px] box-border transition-all duration-500',
         winner ? 'bg-green-900' : 'bg-gray-900',
       )}
     >
-      <div className="stat w-[250px]">
+      <div className="stat min-w-[300px]">
         <div className="stat-title font-semibold">
           {winner && answer}
           {!winner && prompt}
