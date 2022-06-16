@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import trivia from './trivia.json';
 import Module from './Module';
+import { ModuleProps } from './props';
 
 const unescape = (str: string) =>
   str
@@ -10,7 +11,7 @@ const unescape = (str: string) =>
     .replace(/&quot;/g, '"')
     .replace(/&#039;/g, "'");
 
-const Trivia: FC = () => {
+const Trivia: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
   const [randomRiddleIndex] = useState(
     Math.floor(Math.random() * trivia.results.length),
   );
@@ -20,6 +21,8 @@ const Trivia: FC = () => {
       prompt="Answer the Question"
       answer={trivia.results[randomRiddleIndex].correct_answer}
       text={unescape(trivia.results[randomRiddleIndex].question)}
+      onComplete={onComplete}
+      showAnswer={showAnswer}
     />
   );
 };

@@ -1,8 +1,9 @@
 import React, { FC, useEffect, useState } from 'react';
 import words from '../words.json';
 import Module from './Module';
+import { ModuleProps } from './props';
 
-const Unscramble: FC = () => {
+const Unscramble: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
   const [randomWordIndex] = useState(Math.floor(Math.random() * words.length));
   const [scrambledWord, setScrambledWord] = useState('');
   const [answer, setAnswer] = useState('');
@@ -32,7 +33,11 @@ const Unscramble: FC = () => {
             (words[randomWordIndex] as string).split('').includes(char),
           ) && words.includes(message)
       }
-      onComplete={message => setAnswer(message)}
+      onComplete={message => {
+        setAnswer(message);
+        onComplete?.(message);
+      }}
+      showAnswer={showAnswer}
     />
   );
 };

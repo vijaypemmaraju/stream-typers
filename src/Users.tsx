@@ -5,6 +5,7 @@ import useStore from './useStore';
 const Users: FC = () => {
   const users = useStore(store => store.users);
   const userPoints = useStore(store => store.userPoints);
+  const userColors = useStore(store => store.userColors);
   const setUsers = useStore(store => store.setUsers);
 
   return (
@@ -18,21 +19,21 @@ const Users: FC = () => {
         {users.map(item => (
           <Reorder.Item dragListener={false} key={item} value={item}>
             <div className="divider" />
-            <div className="flex align-center justify-start items-center h-[100px] p-3">
+            <div className="flex justify-start items-center h-[100px] p-3">
               <motion.div
-                className="flex align-center justify-end h-full"
+                className="flex items-center justify-end h-full"
                 style={{
-                  backgroundColor: item,
+                  backgroundColor: userColors[item],
                 }}
                 animate={{
-                  width: ((userPoints.item || 0) / 1000) * window.innerWidth,
+                  width: ((userPoints[item] || 0) / 1000) * window.innerWidth,
                 }}
               >
-                {(userPoints.item || 0) > 50 && (
+                {(userPoints[item] || 0) > 50 && (
                   <h2 className="m-0 pl-3 font-normal text-black">{item}</h2>
                 )}
               </motion.div>
-              {(userPoints.item || 0) < 50 && (
+              {(userPoints[item] || 0) < 50 && (
                 <h2 className="m-0 pl-3 font-normal text-white">{item}</h2>
               )}
             </div>

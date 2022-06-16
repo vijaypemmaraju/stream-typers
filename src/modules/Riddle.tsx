@@ -1,8 +1,9 @@
 import React, { FC, useState } from 'react';
 import riddles from './riddles.json';
 import Module from './Module';
+import { ModuleProps } from './props';
 
-const Riddle: FC = () => {
+const Riddle: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
   const [randomRiddleIndex] = useState(
     Math.floor(Math.random() * riddles.length),
   );
@@ -14,6 +15,8 @@ const Riddle: FC = () => {
       prompt="Solve the Riddle"
       answer={riddles[randomRiddleIndex].answer}
       text={riddles[randomRiddleIndex].question}
+      onComplete={onComplete}
+      showAnswer={showAnswer}
     />
   );
 };

@@ -1,10 +1,11 @@
 import mexp from 'math-expression-evaluator';
 import React, { FC, useState } from 'react';
 import Module from './Module';
+import { ModuleProps } from './props';
 
 const operators = ['+', '-', '*'];
 
-const MathExpression: FC = () => {
+const MathExpression: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
   const [randomNumbers] = useState(
     Array.from(
       { length: Math.floor(Math.random() * 2) + 3 },
@@ -34,6 +35,8 @@ const MathExpression: FC = () => {
       prompt="Solve the Expression"
       answer={mexp.eval(expression).toString()}
       text={expression}
+      onComplete={onComplete}
+      showAnswer={showAnswer}
     />
   );
 };

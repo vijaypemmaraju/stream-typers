@@ -11,6 +11,7 @@ type ModuleProps = {
   predicate?: (message: string) => boolean;
   onComplete?: (message: string) => void;
   textClassName?: string;
+  showAnswer?: boolean;
 };
 
 const Module: FC<ModuleProps> = ({
@@ -20,6 +21,7 @@ const Module: FC<ModuleProps> = ({
   onComplete,
   predicate = message => message === answer.toLowerCase(),
   textClassName,
+  showAnswer,
 }) => {
   const [winner, setWinner] = useState('');
   const addPointsForUser = useStore(store => store.addPointsForUser);
@@ -54,8 +56,8 @@ const Module: FC<ModuleProps> = ({
     >
       <div className="stat min-w-[300px] max-w-[300px]">
         <div className="stat-title font-semibold">
-          {winner && answer}
-          {!winner && prompt}
+          {(winner || showAnswer) && answer}
+          {!(winner || showAnswer) && prompt}
         </div>
         <div
           className={cx('stat-value whitespace-normal text-2xl', textClassName)}
