@@ -26,6 +26,7 @@ const Module: FC<ModuleProps> = ({
 }) => {
   const [winner, setWinner] = useState('');
   const addPointsForUser = useStore(store => store.addPointsForUser);
+  const userIcons = useStore(store => store.userIcons);
   const streamer = usePersistedStore(store => store.streamer);
 
   useIncomingChat(async (_channel, user, message, msg) => {
@@ -36,7 +37,7 @@ const Module: FC<ModuleProps> = ({
     const normalizedMessage = message.toLowerCase().trim();
     if (predicate(normalizedMessage)) {
       const userName = msg.userInfo.displayName.toLowerCase();
-      if (userName === streamer) {
+      if (userName === streamer && process.env.NODE_ENV === 'production') {
         // wait 3 seconds before rewarding the streamer
         await new Promise(resolve => {
           setTimeout(resolve, 3000);
@@ -85,7 +86,16 @@ const Module: FC<ModuleProps> = ({
         >
           {text}
         </div>
-        <div className="p-2 text-lg font-semibold stat-desc">{winner}</div>
+        <div className="flex items-center justify-center p-2 text-lg font-semibold stat-desc">
+          {winner && (
+            <img
+              src={userIcons[winner]}
+              alt={winner}
+              className="w-8 h-8 mt-0 mb-0 mr-2"
+            />
+          )}
+          {winner}
+        </div>
       </div>
     </motion.div>
   );

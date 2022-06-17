@@ -181,7 +181,7 @@ const Lobby: FC = () => {
                       <img
                         src={userIcons[item]}
                         alt={item}
-                        className="w-12 h-12 mr-4"
+                        className="w-12 h-12 mt-0 mb-0 mr-4"
                       />
                       <h6 className="text-2xl font-bold text-black">{item}</h6>
                     </motion.div>

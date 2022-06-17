@@ -35,7 +35,7 @@ const Users: FC = () => {
                     <img
                       src={userIcons[item]}
                       alt={item}
-                      className="w-12 h-12 mr-4"
+                      className="w-12 h-12 mt-0 mb-0 mr-4"
                     />
                     {item}
                   </h2>
@@ -46,7 +46,7 @@ const Users: FC = () => {
                   <img
                     src={userIcons[item]}
                     alt={item}
-                    className="w-12 h-12 mr-4"
+                    className="w-12 h-12 mt-0 mb-0 mr-4"
                   />
                   {item}
                 </h2>
