@@ -37,6 +37,7 @@ const Unscramble: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
         setAnswer(message);
         onComplete?.(message);
       }}
+      textClassName="text-3xl"
       showAnswer={showAnswer}
     />
   );

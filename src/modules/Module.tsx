@@ -29,7 +29,11 @@ const Module: FC<ModuleProps> = ({
   useIncomingChat((_channel, user, message) => {
     const normalizedMessage = message.toLowerCase().trim();
     if (predicate(normalizedMessage)) {
-      const { users, setUsers } = useStore.getState();
+      const {
+        users,
+        setUsers,
+        setWinner: setOverallWinner,
+      } = useStore.getState();
       setWinner(user);
       onComplete?.(normalizedMessage);
       addPointsForUser(user, 100);
@@ -42,7 +46,7 @@ const Module: FC<ModuleProps> = ({
       });
       setUsers(Array.from(new Set(sortedUsers)));
       if (userPoints[sortedUsers[0]] >= 1000) {
-        setWinner(sortedUsers[0]);
+        setOverallWinner(sortedUsers[0]);
       }
     }
   });
@@ -50,21 +54,25 @@ const Module: FC<ModuleProps> = ({
   return (
     <motion.div
       className={cx(
-        'stats shadow text-center min-w-[300px] w-width-[300px] box-border transition-all duration-500',
+        'stats shadow text-center min-w-[300px] w-width-[300px] min-h-[200px] box-border transition-all duration-500',
         winner ? 'bg-green-900' : 'bg-gray-900',
       )}
     >
       <div className="stat min-w-[300px] max-w-[300px]">
-        <div className="stat-title font-semibold">
+        <div className="font-semibold stat-title">
           {(winner || showAnswer) && answer}
           {!(winner || showAnswer) && prompt}
         </div>
         <div
-          className={cx('stat-value whitespace-normal text-2xl', textClassName)}
+          className={cx(
+            'stat-value whitespace-normal',
+            textClassName,
+            !textClassName && 'text-xl',
+          )}
         >
           {text}
         </div>
-        <div className="stat-desc font-semibold text-lg p-2">{winner}</div>
+        <div className="p-2 text-lg font-semibold stat-desc">{winner}</div>
       </div>
     </motion.div>
   );

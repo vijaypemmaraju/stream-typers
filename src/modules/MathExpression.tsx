@@ -35,6 +35,7 @@ const MathExpression: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
       prompt="Solve the Expression"
       answer={mexp.eval(expression).toString()}
       text={expression}
+      textClassName="text-3xl"
       onComplete={onComplete}
       showAnswer={showAnswer}
     />
