@@ -15,6 +15,10 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       - uses: actions/checkout@v3
+      - name: Setup git user
+        run: |
+          git config user.name vijaypemmaraju
+          git config user.email vijayvmp@gmail.com
       - name: Build
         run: |
           npm i
