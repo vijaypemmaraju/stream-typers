@@ -127,7 +127,10 @@ const Lobby: FC = () => {
               type="button"
               className="btn"
               onClick={() => {
-                location.href = `https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=rybwfkon925lffxuhr5tlkyqs259q5&redirect_uri=${window.location.origin}&scope=user:read:email`;
+                location.href = `https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=rybwfkon925lffxuhr5tlkyqs259q5&redirect_uri=${window.location.href.replace(
+                  /\/$/,
+                  '',
+                )}&scope=user:read:email`;
               }}
             >
               <svg
