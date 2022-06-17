@@ -40,9 +40,11 @@ const Game: FC = () => {
     setModules(chosenModules);
   }, [currentRound]);
 
+  const gameComplete = !!winner && gameState === 'round_complete';
+
   return (
     <div className="w-[100vw] flex justify-center items-center">
-      {!winner && (
+      {!gameComplete && (
         <div className="flex flex-col items-center justify-center w-full h-full">
           {gameState === 'beginning_round' && (
             <>
@@ -60,23 +62,19 @@ const Game: FC = () => {
             <>
               <h1>Round {currentRound}</h1>
               <Progress
-                tick={0.1}
                 onComplete={() => {
                   setShowAnswers(true);
                   setGameState('round_complete');
-                  setTimeout(() => {
-                    modalToggleRef.current!.checked = true;
-                  }, 3000);
                 }}
               />
             </>
           )}
-          {gameState === 'round_complete' && (
+          {gameState === 'round_complete' && !winner && (
             <>
               <h2>Round Complete!</h2>
               <h1>Round {currentRound}</h1>
               <Progress
-                tick={5}
+                tick={3}
                 onComplete={() => {
                   setShowAnswers(true);
                   modalToggleRef.current!.checked = true;
@@ -99,7 +97,7 @@ const Game: FC = () => {
           </div>
         </div>
       )}
-      {winner && (
+      {gameComplete && (
         <div className="flex flex-col items-center justify-center">
           <div className="divider" />
           <motion.div className="w-full text-center">
@@ -112,6 +110,7 @@ const Game: FC = () => {
           >
             Play Again
           </button>
+          <Users />
         </div>
       )}
       <input

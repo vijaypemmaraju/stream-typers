@@ -28,9 +28,13 @@ type Store = {
 // eslint-disable-next-line import/prefer-default-export
 
 const useStore = create<Store>((set, get) => ({
-  users: [],
+  users: [
+    // 'elevatelol'
+  ],
   userPoints: {},
-  userColors: {},
+  userColors: {
+    // elevatelol: randomColor({ luminosity: 'light' }),
+  },
   addPointsForUser: (user: string, points: number) => {
     const { userPoints } = get();
     set({

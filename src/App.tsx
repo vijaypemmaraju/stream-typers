@@ -29,9 +29,6 @@ const App: FC = () => {
             const userName = msg.userInfo.displayName.toLowerCase();
             if (mode === 'lobby') {
               if (message === '!join') {
-                // if (userName === streamer) {
-                //   return;
-                // }
                 if (users.length >= 20) {
                   return;
                 }
@@ -39,8 +36,6 @@ const App: FC = () => {
                 addColorForUser(userName);
               }
               setUsers(Array.from(new Set(users)));
-            } else if (mode === 'game') {
-              // do nothing
             }
           },
         );
@@ -50,7 +45,7 @@ const App: FC = () => {
   }, [streamer]);
 
   return (
-    <div className="flex flex-col justify-center items-center prose">
+    <div className="flex flex-col items-center justify-center prose">
       {mode === 'lobby' && <Lobby />}
       {mode === 'game' && <Game />}
     </div>

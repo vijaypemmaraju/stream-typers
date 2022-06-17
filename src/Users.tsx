@@ -13,7 +13,7 @@ const Users: FC = () => {
       axis="y"
       values={users}
       onReorder={setUsers}
-      className="list-none pl-0"
+      className="pl-0 list-none"
     >
       <AnimatePresence>
         {users.map(item => (
@@ -26,15 +26,15 @@ const Users: FC = () => {
                   backgroundColor: userColors[item],
                 }}
                 animate={{
-                  width: ((userPoints[item] || 0) / 1000) * window.innerWidth,
+                  width: `${((userPoints[item] || 0) / 1000) * 100}%`,
                 }}
               >
                 {(userPoints[item] || 0) > 50 && (
-                  <h2 className="m-0 pl-3 font-normal text-black">{item}</h2>
+                  <h2 className="px-3 m-0 text-lg text-black">{item}</h2>
                 )}
               </motion.div>
               {(userPoints[item] || 0) < 50 && (
-                <h2 className="m-0 pl-3 font-normal text-white">{item}</h2>
+                <h2 className="px-3 m-0 text-lg text-white">{item}</h2>
               )}
             </div>
           </Reorder.Item>

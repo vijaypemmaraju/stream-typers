@@ -2,6 +2,7 @@ import cx from 'classnames';
 import { motion } from 'framer-motion';
 import React, { FC, useState } from 'react';
 import useIncomingChat from '../hooks/useIncomingChat';
+import usePersistedStore from '../usePersistedStore';
 import useStore from '../useStore';
 
 type ModuleProps = {
@@ -25,10 +26,22 @@ const Module: FC<ModuleProps> = ({
 }) => {
   const [winner, setWinner] = useState('');
   const addPointsForUser = useStore(store => store.addPointsForUser);
+  const streamer = usePersistedStore(store => store.streamer);
 
-  useIncomingChat((_channel, user, message) => {
+  useIncomingChat(async (_channel, user, message, msg) => {
+    const { winner: overallWinner, gameState } = useStore.getState();
+    if (gameState !== 'round_in_progress' || overallWinner) {
+      return;
+    }
     const normalizedMessage = message.toLowerCase().trim();
     if (predicate(normalizedMessage)) {
+      const userName = msg.userInfo.displayName.toLowerCase();
+      if (userName === streamer) {
+        // wait 3 seconds before rewarding the streamer
+        await new Promise(resolve => {
+          setTimeout(resolve, 3000);
+        });
+      }
       const {
         users,
         setUsers,
