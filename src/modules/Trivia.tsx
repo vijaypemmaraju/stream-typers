@@ -13,14 +13,16 @@ const unescape = (str: string) =>
 
 const Trivia: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
   const [randomRiddleIndex] = useState(
-    Math.floor(Math.random() * trivia.results.length),
+    Math.floor(Math.random() * trivia.length),
   );
+
+  console.log(trivia[randomRiddleIndex].answer.toString());
 
   return (
     <Module
       prompt="Answer the Question"
-      answer={trivia.results[randomRiddleIndex].correct_answer}
-      text={unescape(trivia.results[randomRiddleIndex].question)}
+      answer={trivia[randomRiddleIndex].answer.toString()}
+      text={trivia[randomRiddleIndex].question}
       onComplete={onComplete}
       showAnswer={showAnswer}
     />
