@@ -40,6 +40,9 @@ const Module: FC<ModuleProps> = ({
       return;
     }
     const { winner: overallWinner, gameState } = useStore.getState();
+    if (gameState !== 'round_in_progress') {
+      return;
+    }
     if (gameState !== 'round_in_progress' && overallWinner) {
       return;
     }
