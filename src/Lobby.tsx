@@ -76,9 +76,13 @@ const Lobby: FC = () => {
           accessToken,
         );
         const apiClient = new ApiClient({ authProvider });
-        const user = await apiClient.users.getMe();
-        setCurrentUser(user);
-        setStreamer(user.displayName);
+        try {
+          const user = await apiClient.users.getMe();
+          setCurrentUser(user);
+          setStreamer(user.displayName);
+        } catch (e) {
+          setAccessToken('');
+        }
       }
     })();
   }, [accessToken]);
