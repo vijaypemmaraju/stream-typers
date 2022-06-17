@@ -6,6 +6,7 @@ const Users: FC = () => {
   const users = useStore(store => store.users);
   const userPoints = useStore(store => store.userPoints);
   const userColors = useStore(store => store.userColors);
+  const userIcons = useStore(store => store.userIcons);
   const setUsers = useStore(store => store.setUsers);
 
   return (
@@ -29,12 +30,26 @@ const Users: FC = () => {
                   width: `${((userPoints[item] || 0) / 1000) * 100}%`,
                 }}
               >
-                {(userPoints[item] || 0) > 50 && (
-                  <h2 className="px-3 m-0 text-lg text-black">{item}</h2>
+                {(userPoints[item] || 0) > 200 && (
+                  <h2 className="flex items-center px-3 m-0 text-lg text-black">
+                    <img
+                      src={userIcons[item]}
+                      alt={item}
+                      className="w-12 h-12 mr-4"
+                    />
+                    {item}
+                  </h2>
                 )}
               </motion.div>
-              {(userPoints[item] || 0) < 50 && (
-                <h2 className="px-3 m-0 text-lg text-white">{item}</h2>
+              {(userPoints[item] || 0) <= 200 && (
+                <h2 className="flex items-center px-3 m-0 text-lg text-white">
+                  <img
+                    src={userIcons[item]}
+                    alt={item}
+                    className="w-12 h-12 mr-4"
+                  />
+                  {item}
+                </h2>
               )}
             </div>
           </Reorder.Item>

@@ -12,8 +12,10 @@ type Store = {
   users: string[];
   userPoints: { [key: string]: number };
   userColors: { [key: string]: string };
+  userIcons: { [key: string]: string };
   addPointsForUser: (user: string, points: number) => void;
   addColorForUser: (user: string) => void;
+  setIconForUser: (user: string, icon: string) => void;
   mode: 'lobby' | 'game';
   gameState: GameState;
   setGameState: (gameState: GameState) => void;
@@ -35,6 +37,7 @@ const useStore = create<Store>((set, get) => ({
   userColors: {
     // elevatelol: randomColor({ luminosity: 'light' }),
   },
+  userIcons: {},
   addPointsForUser: (user: string, points: number) => {
     const { userPoints } = get();
     set({
@@ -50,6 +53,15 @@ const useStore = create<Store>((set, get) => ({
       userColors: {
         ...userColors,
         [user]: randomColor({ luminosity: 'light' }),
+      },
+    });
+  },
+  setIconForUser: (user: string, icon: string) => {
+    const { userIcons } = get();
+    set({
+      userIcons: {
+        ...userIcons,
+        [user]: icon,
       },
     });
   },
