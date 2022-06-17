@@ -2,6 +2,12 @@ import create from 'zustand';
 import randomColor from 'randomcolor';
 import words from './words.json';
 
+type GameState =
+  | 'beginning_round'
+  | 'round_in_progress'
+  | 'round_complete'
+  | 'game_complete';
+
 type Store = {
   users: string[];
   userPoints: { [key: string]: number };
@@ -9,6 +15,8 @@ type Store = {
   addPointsForUser: (user: string, points: number) => void;
   addColorForUser: (user: string) => void;
   mode: 'lobby' | 'game';
+  gameState: GameState;
+  setGameState: (gameState: GameState) => void;
   randomWordIndex: number;
   setUsers: (users: string[]) => void;
   setMode: (mode: 'lobby' | 'game') => void;
@@ -42,6 +50,8 @@ const useStore = create<Store>((set, get) => ({
     });
   },
   mode: 'lobby',
+  gameState: 'beginning_round',
+  setGameState: gameState => set({ gameState }),
   randomWordIndex: Math.floor(Math.random() * words.length),
   setUsers: users => set({ users }),
   setMode: mode => set({ mode }),

@@ -24,13 +24,11 @@ const Game: FC = () => {
   const [modules, setModules] = useState<ModuleItem[]>([]);
   const [showAnswers, setShowAnswers] = useState(false);
   const [currentRound, setCurrentRound] = useState(1);
-  const [gameState, setGameState] = useState<
-    'beginning_round' | 'round_in_progress' | 'round_complete' | 'game_complete'
-  >('beginning_round');
+  const gameState = useStore(store => store.gameState);
+  const setGameState = useStore(store => store.setGameState);
   const modalToggleRef = React.useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    // create 5 modules
     const chosenModules: ModuleItem[] = [];
     for (let i = 0; i < 10; i += 1) {
       chosenModules.push({
