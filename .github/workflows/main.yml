@@ -24,14 +24,4 @@ jobs:
         run: |
           npm i
           npm run build
-      - name: Deploy
-        uses: reggionick/s3-deploy@v3
-        with:
-          folder: out
-          bucket: ${{ secrets.AWS_BUCKET }}
-          bucket-region: us-east-1
-          dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-          invalidation: /*
-          delete-removed: true
-          no-cache: true
-          private: true
+          npm run deploy
