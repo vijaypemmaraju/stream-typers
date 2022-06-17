@@ -29,7 +29,6 @@ const MathExpression: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
     '',
   );
 
-  console.log(mexp.eval(expression));
   return (
     <Module
       prompt="Solve the Expression"

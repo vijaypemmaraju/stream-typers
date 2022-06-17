@@ -8,8 +8,6 @@ const Riddle: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
     Math.floor(Math.random() * riddles.length),
   );
 
-  console.log(riddles[randomRiddleIndex].answer);
-
   return (
     <Module
       prompt="Solve the Riddle"

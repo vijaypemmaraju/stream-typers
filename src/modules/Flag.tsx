@@ -6,8 +6,6 @@ import { ModuleProps } from './props';
 const Flag: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
   const [randomFlagIndex] = useState(Math.floor(Math.random() * flags.length));
 
-  console.log(flags[randomFlagIndex].name);
-
   return (
     <Module
       prompt="Identify the Flag"
