@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import { motion } from 'framer-motion';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import useIncomingChat from '../hooks/useIncomingChat';
 import usePersistedStore from '../usePersistedStore';
 import useStore from '../useStore';
@@ -29,8 +29,14 @@ const Module: FC<ModuleProps> = ({
   const userIcons = useStore(store => store.userIcons);
   const streamer = usePersistedStore(store => store.streamer);
 
+  const winnerRef = React.useRef(winner);
+
+  useEffect(() => {
+    winnerRef.current = winner;
+  });
+
   useIncomingChat(async (_channel, user, message, msg) => {
-    if (winner) {
+    if (winnerRef.current) {
       return;
     }
     const { winner: overallWinner, gameState } = useStore.getState();
@@ -45,6 +51,10 @@ const Module: FC<ModuleProps> = ({
         await new Promise(resolve => {
           setTimeout(resolve, 3000);
         });
+
+        if (winnerRef.current) {
+          return;
+        }
       }
       const {
         users,
