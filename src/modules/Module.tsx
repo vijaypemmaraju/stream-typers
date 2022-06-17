@@ -7,7 +7,7 @@ import useStore from '../useStore';
 
 type ModuleProps = {
   prompt: string;
-  text: string;
+  text: React.ReactNode;
   answer: string;
   predicate?: (message: string) => boolean;
   onComplete?: (message: string) => void;
