@@ -74,7 +74,7 @@ const Game: FC = () => {
               <h2>Round Complete!</h2>
               <h1>Round {currentRound}</h1>
               <Progress
-                tick={3}
+                tick={2}
                 onComplete={() => {
                   setShowAnswers(true);
                   modalToggleRef.current!.checked = true;
