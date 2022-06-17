@@ -30,6 +30,9 @@ const Module: FC<ModuleProps> = ({
   const streamer = usePersistedStore(store => store.streamer);
 
   useIncomingChat(async (_channel, user, message, msg) => {
+    if (winner) {
+      return;
+    }
     const { winner: overallWinner, gameState } = useStore.getState();
     if (gameState !== 'round_in_progress' || overallWinner) {
       return;
