@@ -34,7 +34,7 @@ const Module: FC<ModuleProps> = ({
       return;
     }
     const { winner: overallWinner, gameState } = useStore.getState();
-    if (gameState !== 'round_in_progress' || overallWinner) {
+    if (gameState !== 'round_in_progress' && overallWinner) {
       return;
     }
     const normalizedMessage = message.toLowerCase().trim();
