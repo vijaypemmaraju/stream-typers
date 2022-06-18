@@ -42,9 +42,7 @@ const Game: FC = () => {
   }, [currentRound]);
 
   const gameComplete =
-    !!winner &&
-    gameState === 'round_complete' &&
-    modalToggleRef.current!.checked;
+    !!winner && gameState === 'round_complete' && roundCompleted;
 
   return (
     <div className="w-[100vw] flex justify-center items-center">
