@@ -71,7 +71,7 @@ const Game: FC = () => {
               />
             </>
           )}
-          {gameState === 'round_complete' && !winner && (
+          {gameState === 'round_complete' && (
             <>
               <h2>Round Complete!</h2>
               <h1>Round {currentRound}</h1>
@@ -94,7 +94,9 @@ const Game: FC = () => {
                 tick={1.5}
                 onComplete={() => {
                   setRoundCompleted(true);
-                  modalToggleRef.current!.checked = true;
+                  if (!winner) {
+                    modalToggleRef.current!.checked = true;
+                  }
                 }}
               />
             </>
