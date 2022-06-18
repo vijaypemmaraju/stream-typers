@@ -49,7 +49,7 @@ const Module: FC<ModuleProps> = ({
     const normalizedMessage = message.toLowerCase().trim();
     if (predicate(normalizedMessage)) {
       const userName = msg.userInfo.displayName.toLowerCase();
-      if (userName === streamer && process.env.NODE_ENV === 'production') {
+      if (userName === streamer) {
         // wait 3 seconds before rewarding the streamer
         await new Promise(resolve => {
           setTimeout(resolve, 3000);
