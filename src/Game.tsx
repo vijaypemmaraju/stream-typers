@@ -24,13 +24,14 @@ const Game: FC = () => {
   const [modules, setModules] = useState<ModuleItem[]>([]);
   const [showAnswers, setShowAnswers] = useState(false);
   const [currentRound, setCurrentRound] = useState(1);
+  const [roundCompleted, setRoundCompleted] = useState(false);
   const gameState = useStore(store => store.gameState);
   const setGameState = useStore(store => store.setGameState);
   const modalToggleRef = React.useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     const chosenModules: ModuleItem[] = [];
-    for (let i = 0; i < 10; i += 1) {
+    for (let i = 0; i < 12; i += 1) {
       chosenModules.push({
         id: shortid.generate(),
         module:
@@ -40,7 +41,10 @@ const Game: FC = () => {
     setModules(chosenModules);
   }, [currentRound]);
 
-  const gameComplete = !!winner && gameState === 'round_complete';
+  const gameComplete =
+    !!winner &&
+    gameState === 'round_complete' &&
+    modalToggleRef.current!.checked;
 
   return (
     <div className="w-[100vw] flex justify-center items-center">
@@ -73,10 +77,25 @@ const Game: FC = () => {
             <>
               <h2>Round Complete!</h2>
               <h1>Round {currentRound}</h1>
+              {roundCompleted && (
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => {
+                    setCurrentRound(currentRound + 1);
+                    setGameState('beginning_round');
+                    setShowAnswers(false);
+                    setRoundCompleted(false);
+                    modalToggleRef.current!.checked = false;
+                  }}
+                >
+                  Continue
+                </button>
+              )}
               <Progress
                 tick={1.5}
                 onComplete={() => {
-                  setShowAnswers(true);
+                  setRoundCompleted(true);
                   modalToggleRef.current!.checked = true;
                 }}
               />
@@ -129,9 +148,19 @@ const Game: FC = () => {
                 type="button"
                 className="btn"
                 onClick={() => {
+                  modalToggleRef.current!.checked = false;
+                }}
+              >
+                See Answers
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => {
                   setCurrentRound(currentRound + 1);
                   setGameState('beginning_round');
                   setShowAnswers(false);
+                  setRoundCompleted(true);
                   modalToggleRef.current!.checked = false;
                 }}
               >
