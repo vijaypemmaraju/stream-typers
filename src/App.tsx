@@ -1,7 +1,5 @@
-import React, { FC, useEffect } from 'react';
-import { ChatClient } from '@twurple/chat';
+import React, { FC } from 'react';
 import useStore from './useStore';
-import usePersistedStore from './usePersistedStore';
 import Game from './Game';
 import Lobby from './Lobby';
 

@@ -6,6 +6,7 @@ import { StaticAuthProvider } from '@twurple/auth';
 import { ChatClient } from '@twurple/chat';
 import useStore from './useStore';
 import usePersistedStore from './usePersistedStore';
+import Settings from './Settings';
 
 const Lobby: FC = () => {
   const users = useStore(store => store.users);
@@ -64,6 +65,14 @@ const Lobby: FC = () => {
     loader();
   }, [streamer]);
 
+  const categoryFrequencySettings = usePersistedStore(
+    store => store.categoryFrequencySettings,
+  );
+
+  const areAllCategoryFrequencyValuesZero = Object.values(
+    categoryFrequencySettings,
+  ).every(value => value === 0);
+
   useEffect(() => {
     (async () => {
       if (location.hash) {
@@ -86,6 +95,8 @@ const Lobby: FC = () => {
       }
     })();
   }, [accessToken]);
+
+  const modalToggleRef = React.useRef<HTMLInputElement | null>(null);
 
   return (
     <>
@@ -154,6 +165,15 @@ const Lobby: FC = () => {
       </div>
       {streamer && (
         <>
+          <button
+            type="button"
+            className="btn"
+            onClick={() => {
+              modalToggleRef.current!.checked = true;
+            }}
+          >
+            Settings
+          </button>
           <h3>Type !join in chat</h3>
           <div className="divider" />
           <div className="bg-gray-900 stats">
@@ -202,6 +222,35 @@ const Lobby: FC = () => {
             >
               Start
             </button>
+          </div>
+          <input
+            type="checkbox"
+            id="my-modal"
+            className="modal-toggle"
+            ref={modalToggleRef}
+          />
+          <div className="modal">
+            <div className="modal-box max-w-[50vw]">
+              <Settings />
+              {areAllCategoryFrequencyValuesZero && (
+                <div className="p-5">
+                  <h3>
+                    You have not selected any categories. Please select at least
+                    one category.
+                  </h3>
+                </div>
+              )}
+              <button
+                type="button"
+                className="btn"
+                disabled={areAllCategoryFrequencyValuesZero}
+                onClick={() => {
+                  modalToggleRef.current!.checked = false;
+                }}
+              >
+                Close
+              </button>
+            </div>
           </div>
         </>
       )}

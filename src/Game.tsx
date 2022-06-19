@@ -13,16 +13,17 @@ import { ModuleProps } from './modules/props';
 import Users from './Users';
 import WorldCapital from './modules/WorldCapital';
 import WorldCountry from './modules/WorldCountry';
+import usePersistedStore from './usePersistedStore';
 
-const moduleComponents = [
+const categories = {
   Unscramble,
-  Flag,
-  MathExpression,
+  Flags: Flag,
+  Math: MathExpression,
   Riddle,
   Trivia,
-  WorldCapital,
-  WorldCountry,
-];
+  Capitals: WorldCapital,
+  Countries: WorldCountry,
+};
 
 type ModuleItem = {
   id: string;
@@ -38,6 +39,17 @@ const Game: FC = () => {
   const gameState = useStore(store => store.gameState);
   const setGameState = useStore(store => store.setGameState);
   const modalToggleRef = React.useRef<HTMLInputElement | null>(null);
+  const categoryFrequencySettings = usePersistedStore(
+    store => store.categoryFrequencySettings,
+  );
+
+  const moduleComponents: FC<ModuleProps>[] = [];
+
+  Object.entries(categoryFrequencySettings).forEach(([category, frequency]) => {
+    for (let i = 0; i < frequency; i += 1) {
+      moduleComponents.push(categories[category]);
+    }
+  });
 
   useEffect(() => {
     const chosenModules: ModuleItem[] = [];
