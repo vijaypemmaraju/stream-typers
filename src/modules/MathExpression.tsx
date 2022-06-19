@@ -29,11 +29,14 @@ const MathExpression: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
     '',
   );
 
+  const answer = mexp.eval(expression).toString();
+
   return (
     <Module
       prompt="Solve the Expression"
-      answer={mexp.eval(expression).toString()}
+      answer={answer}
       text={expression}
+      predicate={message => message === answer.toLowerCase()}
       textClassName="text-3xl"
       onComplete={onComplete}
       showAnswer={showAnswer}

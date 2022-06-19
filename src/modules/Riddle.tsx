@@ -8,11 +8,14 @@ const Riddle: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
     Math.floor(Math.random() * riddles.length),
   );
 
+  const { answer } = riddles[randomRiddleIndex];
+
   return (
     <Module
       prompt="Solve the Riddle"
-      answer={riddles[randomRiddleIndex].answer}
+      answer={answer}
       text={riddles[randomRiddleIndex].question}
+      predicate={message => message === answer.toLowerCase()}
       onComplete={onComplete}
       showAnswer={showAnswer}
     />

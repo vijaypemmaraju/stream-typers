@@ -11,8 +11,18 @@ import Trivia from './modules/Trivia';
 import Progress from './Progress';
 import { ModuleProps } from './modules/props';
 import Users from './Users';
+import WorldCapital from './modules/WorldCapital';
+import WorldCountry from './modules/WorldCountry';
 
-const moduleComponents = [Unscramble, Flag, MathExpression, Riddle, Trivia];
+const moduleComponents = [
+  Unscramble,
+  Flag,
+  MathExpression,
+  Riddle,
+  Trivia,
+  WorldCapital,
+  WorldCountry,
+];
 
 type ModuleItem = {
   id: string;

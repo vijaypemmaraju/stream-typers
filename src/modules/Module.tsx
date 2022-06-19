@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import React, { FC, useEffect, useState } from 'react';
+import levenshtein from 'fast-levenshtein';
 import useIncomingChat from '../hooks/useIncomingChat';
 import usePersistedStore from '../usePersistedStore';
 import useStore from '../useStore';
@@ -20,7 +21,7 @@ const Module: FC<ModuleProps> = ({
   text,
   answer,
   onComplete,
-  predicate = message => message === answer.toLowerCase(),
+  predicate = message => levenshtein.get(message, answer.toLowerCase()) <= 2,
   textClassName,
   showAnswer,
 }) => {
@@ -39,7 +40,7 @@ const Module: FC<ModuleProps> = ({
     if (winnerRef.current) {
       return;
     }
-    const { winner: overallWinner, gameState } = useStore.getState();
+    const { winner: overallWinner, gameState, users } = useStore.getState();
     if (gameState !== 'round_in_progress') {
       return;
     }
@@ -47,8 +48,13 @@ const Module: FC<ModuleProps> = ({
       return;
     }
     const normalizedMessage = message.toLowerCase().trim();
+    const userName = msg.userInfo.displayName.toLowerCase();
+
+    if (!users.includes(userName)) {
+      return;
+    }
+
     if (predicate(normalizedMessage)) {
-      const userName = msg.userInfo.displayName.toLowerCase();
       if (userName === streamer) {
         // wait 3 seconds before rewarding the streamer
         await new Promise(resolve => {
@@ -59,11 +65,7 @@ const Module: FC<ModuleProps> = ({
           return;
         }
       }
-      const {
-        users,
-        setUsers,
-        setWinner: setOverallWinner,
-      } = useStore.getState();
+      const { setUsers, setWinner: setOverallWinner } = useStore.getState();
       setWinner(user);
       onComplete?.(normalizedMessage);
       addPointsForUser(user, 100);
