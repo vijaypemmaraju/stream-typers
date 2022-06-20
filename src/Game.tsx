@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import shortid from 'shortid';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import useStore from './useStore';
 import Unscramble from './modules/Unscramble';
@@ -15,6 +15,7 @@ import WorldCapital from './modules/WorldCapital';
 import WorldCountry from './modules/WorldCountry';
 import usePersistedStore from './usePersistedStore';
 import confetti from './confetti';
+import useIncomingChat from './hooks/useIncomingChat';
 
 const categories = {
   Unscramble,
@@ -30,6 +31,13 @@ type ModuleItem = {
   id: string;
   module: FC<ModuleProps>;
 };
+
+function fire(particleRatio, opts) {
+  confetti({
+    ...opts,
+    particleCount: Math.floor(1000 * particleRatio),
+  });
+}
 
 const Game: FC = () => {
   const winner = useStore(store => store.winner);
@@ -75,8 +83,64 @@ const Game: FC = () => {
     }
   }, [gameComplete]);
 
+  const [flipped, setFlipped] = useState(false);
+
+  const flippedRef = useRef(flipped);
+
+  useEffect(() => {
+    flippedRef.current = flipped;
+  });
+
+  useIncomingChat((_channel, user, message, msg) => {
+    if (message.toLowerCase().trim().includes('!flip') && msg.isCheer) {
+      setFlipped(!flippedRef.current);
+    }
+    if (message.toLowerCase().trim().includes('!confetti') && msg.isCheer) {
+      fire(0.25, {
+        spread: 26,
+        startVelocity: 55,
+      });
+      fire(0.2, {
+        spread: 60,
+      });
+      fire(0.35, {
+        spread: 100,
+        decay: 0.91,
+        scalar: 0.8,
+      });
+      fire(0.1, {
+        spread: 120,
+        startVelocity: 25,
+        decay: 0.92,
+        scalar: 1.2,
+      });
+      fire(0.1, {
+        spread: 120,
+        startVelocity: 45,
+      });
+    }
+  });
+
+  useEffect(() => {
+    let timeout;
+    if (flipped) {
+      timeout = setTimeout(() => {
+        setFlipped(false);
+      }, 10000);
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [flipped]);
+
   return (
-    <div className="w-[100vw] flex justify-center items-center">
+    <motion.div
+      className="w-[100vw] flex justify-center items-center"
+      initial={{ rotate: 0 }}
+      animate={{ rotate: flipped ? 180 : 0 }}
+      transition={{ duration: 1.5 }}
+    >
       {!gameComplete && (
         <div className="flex flex-col items-center justify-center w-full h-full">
           {gameState === 'beginning_round' && (
@@ -84,7 +148,7 @@ const Game: FC = () => {
               <h2>Get Ready!</h2>
               <h1>Round {currentRound}</h1>
               <Progress
-                amount={3}
+                amount={0}
                 onComplete={() => {
                   setGameState('round_in_progress');
                 }}
@@ -209,7 +273,7 @@ const Game: FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
