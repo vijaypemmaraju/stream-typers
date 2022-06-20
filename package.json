@@ -12,6 +12,7 @@
     "@twurple/api": "^5.1.6",
     "@twurple/auth": "^5.1.6",
     "@twurple/chat": "^5.1.6",
+    "canvas-confetti": "^1.5.1",
     "classnames": "^2.3.1",
     "copy-to-clipboard": "^3.3.1",
     "country-flags-svg": "^1.1.6",

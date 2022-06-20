@@ -3328,6 +3328,10 @@ body[dir="rtl"] .checkbox:checked,
   visibility: hidden;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .relative {
   position: relative;
 }
@@ -3444,6 +3448,10 @@ body[dir="rtl"] .checkbox:checked,
 
 .max-w-\[300px\] {
   max-width: 300px;
+}
+
+.resize {
+  resize: both;
 }
 
 .list-none {

@@ -14,6 +14,7 @@ const WorldCapital: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
       answer={worldCapitals[randomIndex].capital}
       text={worldCapitals[randomIndex].country}
       onComplete={onComplete}
+      textClassName="text-3xl"
       showAnswer={showAnswer}
     />
   );

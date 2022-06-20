@@ -14,6 +14,7 @@ import Users from './Users';
 import WorldCapital from './modules/WorldCapital';
 import WorldCountry from './modules/WorldCountry';
 import usePersistedStore from './usePersistedStore';
+import confetti from './confetti';
 
 const categories = {
   Unscramble,
@@ -67,6 +68,12 @@ const Game: FC = () => {
 
   const gameComplete =
     !!winner && gameState === 'round_complete' && roundCompleted;
+
+  useEffect(() => {
+    if (gameComplete) {
+      confetti();
+    }
+  }, [gameComplete]);
 
   return (
     <div className="w-[100vw] flex justify-center items-center">
@@ -135,8 +142,15 @@ const Game: FC = () => {
               width: 'min(90vw, 1366px)',
             }}
           >
-            {modules.map(moduleItem => (
-              <moduleItem.module key={moduleItem.id} showAnswer={showAnswers} />
+            {modules.map((moduleItem, index) => (
+              <motion.div
+                key={moduleItem.id}
+                initial={{ opacity: 0, y: 200 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index / 10 }}
+              >
+                <moduleItem.module showAnswer={showAnswers} />
+              </motion.div>
             ))}
           </div>
         </div>

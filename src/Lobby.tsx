@@ -7,6 +7,7 @@ import { ChatClient } from '@twurple/chat';
 import useStore from './useStore';
 import usePersistedStore from './usePersistedStore';
 import Settings from './Settings';
+import confetti from './confetti';
 
 const Lobby: FC = () => {
   const users = useStore(store => store.users);
