@@ -1,12 +1,12 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 
 type ProgressProps = {
-  tick?: number;
+  amount?: number;
   onComplete: () => void;
 };
 
-const Progress: FC<ProgressProps> = ({ tick = 0.2, onComplete }) => {
-  const [progress, setProgress] = useState(100);
+const Progress: FC<ProgressProps> = ({ amount = 30, onComplete }) => {
+  const [progress, setProgress] = useState(amount);
 
   const progressRef = useRef(progress);
 
@@ -16,7 +16,7 @@ const Progress: FC<ProgressProps> = ({ tick = 0.2, onComplete }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setProgress(p => p - tick);
+      setProgress(p => p - 0.1);
       if (progressRef.current <= 0) {
         clearInterval(interval);
         onComplete();
@@ -31,7 +31,7 @@ const Progress: FC<ProgressProps> = ({ tick = 0.2, onComplete }) => {
         transition: 'value 5s ease',
       }}
       value={progress}
-      max="100"
+      max={amount}
     />
   );
 };

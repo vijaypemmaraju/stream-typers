@@ -10,6 +10,8 @@ type Store = {
     [key: string]: number;
   };
   updateCategoryFrequencySetting: (key: string, value: number) => void;
+  roundLength: number;
+  setRoundLength: (roundLength: number) => void;
 };
 
 // eslint-disable-next-line import/prefer-default-export
@@ -39,6 +41,8 @@ const usePersistedStore = create<Store>(
           },
         });
       },
+      roundLength: 30,
+      setRoundLength: roundLength => set({ roundLength }),
     }),
     { name: 'store' },
   ),

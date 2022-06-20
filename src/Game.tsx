@@ -63,6 +63,8 @@ const Game: FC = () => {
     setModules(chosenModules);
   }, [currentRound]);
 
+  const roundLength = usePersistedStore(store => store.roundLength);
+
   const gameComplete =
     !!winner && gameState === 'round_complete' && roundCompleted;
 
@@ -75,7 +77,7 @@ const Game: FC = () => {
               <h2>Get Ready!</h2>
               <h1>Round {currentRound}</h1>
               <Progress
-                tick={5}
+                amount={3}
                 onComplete={() => {
                   setGameState('round_in_progress');
                 }}
@@ -86,6 +88,7 @@ const Game: FC = () => {
             <>
               <h1>Round {currentRound}</h1>
               <Progress
+                amount={roundLength}
                 onComplete={() => {
                   setShowAnswers(true);
                   setGameState('round_complete');
@@ -113,7 +116,7 @@ const Game: FC = () => {
                 </button>
               )}
               <Progress
-                tick={1.5}
+                amount={5}
                 onComplete={() => {
                   setRoundCompleted(true);
                   if (!winner) {
