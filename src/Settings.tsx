@@ -20,9 +20,14 @@ const Settings: FC = () => {
   const updateCategoryFrequencySetting = usePersistedStore(
     store => store.updateCategoryFrequencySetting,
   );
+
+  const questionsPerRound = usePersistedStore(store => store.questionsPerRound);
+  const setQuestionsPerRound = usePersistedStore(
+    store => store.setQuestionsPerRound,
+  );
   return (
     <>
-      <h3>Timers</h3>
+      <h3>Game</h3>
       <div className="w-full form-control">
         <label className="label">
           <span className="label-text">Round Length</span>
@@ -36,6 +41,28 @@ const Settings: FC = () => {
           step="1"
           onChange={e => setRoundLength(+e.target.value)}
         />
+      </div>
+      <div className="w-full pt-4 form-control">
+        <label className="label">
+          <span className="label-text">Questions Per Round</span>
+        </label>
+        <input
+          type="range"
+          min="8"
+          max="20"
+          value={questionsPerRound}
+          className="range"
+          onChange={e => setQuestionsPerRound(+e.target.value)}
+          step="1"
+        />
+      </div>
+      <div className="flex justify-between w-full px-2 text-xs text-center">
+        {new Array(20 - 8 + 1).fill(0).map((_, i) => (
+          <span>
+            <div>|</div>
+            <div>{i + 8}</div>
+          </span>
+        ))}
       </div>
       <h3>Categories</h3>
       <div className="pb-4">

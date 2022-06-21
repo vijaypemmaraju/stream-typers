@@ -58,6 +58,7 @@ const Game: FC = () => {
   const categoryFrequencySettings = usePersistedStore(
     store => store.categoryFrequencySettings,
   );
+  const questionsPerRound = usePersistedStore(store => store.questionsPerRound);
 
   const moduleComponents: FC<ModuleProps>[] = [];
 
@@ -69,7 +70,7 @@ const Game: FC = () => {
 
   useEffect(() => {
     const chosenModules: ModuleItem[] = [];
-    for (let i = 0; i < 12; i += 1) {
+    for (let i = 0; i < questionsPerRound; i += 1) {
       chosenModules.push({
         id: shortid.generate(),
         module:

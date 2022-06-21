@@ -12,6 +12,8 @@ type Store = {
   updateCategoryFrequencySetting: (key: string, value: number) => void;
   roundLength: number;
   setRoundLength: (roundLength: number) => void;
+  questionsPerRound: number;
+  setQuestionsPerRound: (questionsPerRound: number) => void;
 };
 
 // eslint-disable-next-line import/prefer-default-export
@@ -43,6 +45,8 @@ const usePersistedStore = create<Store>(
       },
       roundLength: 45,
       setRoundLength: roundLength => set({ roundLength }),
+      questionsPerRound: 12,
+      setQuestionsPerRound: questionsPerRound => set({ questionsPerRound }),
     }),
     { name: 'store' },
   ),
