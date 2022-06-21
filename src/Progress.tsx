@@ -11,6 +11,10 @@ const Progress: FC<ProgressProps> = ({ amount = 30, onComplete }) => {
   const progressRef = useRef(progress);
 
   useEffect(() => {
+    setProgress(amount);
+  }, [amount]);
+
+  useEffect(() => {
     progressRef.current = progress;
   });
 
@@ -23,10 +27,10 @@ const Progress: FC<ProgressProps> = ({ amount = 30, onComplete }) => {
       }
     }, 100);
     return () => clearInterval(interval);
-  }, []);
+  }, [amount]);
   return (
     <progress
-      className="progress progress-primary w-[80%] transition-all"
+      className="progress progress-primary w-[80%] transition-all h-2"
       style={{
         transition: 'value 5s ease',
       }}

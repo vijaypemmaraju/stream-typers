@@ -41,7 +41,7 @@ const usePersistedStore = create<Store>(
           },
         });
       },
-      roundLength: 30,
+      roundLength: 45,
       setRoundLength: roundLength => set({ roundLength }),
     }),
     { name: 'store' },

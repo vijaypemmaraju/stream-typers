@@ -31,7 +31,7 @@ type Store = {
 
 const useStore = create<Store>((set, get) => ({
   users: [
-    // 'elevatelol'
+    // 'elevatelol', //
   ],
   userPoints: {},
   userColors: {

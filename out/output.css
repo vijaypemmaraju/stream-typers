@@ -3400,6 +3400,14 @@ body[dir="rtl"] .checkbox:checked,
   height: 2rem;
 }
 
+.h-4 {
+  height: 1rem;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
 .min-h-\[200px\] {
   min-height: 200px;
 }
@@ -3619,6 +3627,14 @@ body[dir="rtl"] .checkbox:checked,
   transition-duration: 150ms;
 }
 
+.transition-none {
+  transition-property: none;
+}
+
 .duration-500 {
   transition-duration: 500ms;
+}
+
+.duration-100 {
+  transition-duration: 100ms;
 }

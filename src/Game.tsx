@@ -137,18 +137,18 @@ const Game: FC = () => {
   return (
     <motion.div
       className="w-[100vw] flex justify-center items-center"
-      initial={{ rotate: 0 }}
-      animate={{ rotate: flipped ? 180 : 0 }}
-      transition={{ duration: 1.5 }}
+      initial={{ rotate: 0, opacity: 0 }}
+      animate={{ rotate: flipped ? 180 : 0, opacity: 1 }}
+      transition={{ duration: 1 }}
     >
       {!gameComplete && (
         <div className="flex flex-col items-center justify-center w-full h-full">
+          <motion.h1 layout>Round {currentRound}</motion.h1>
           {gameState === 'beginning_round' && (
             <>
               <h2>Get Ready!</h2>
-              <h1>Round {currentRound}</h1>
               <Progress
-                amount={0}
+                amount={2}
                 onComplete={() => {
                   setGameState('round_in_progress');
                 }}
@@ -156,8 +156,11 @@ const Game: FC = () => {
             </>
           )}
           {gameState === 'round_in_progress' && (
-            <>
-              <h1>Round {currentRound}</h1>
+            <motion.div
+              className="flex flex-col items-center justify-center w-full h-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
               <Progress
                 amount={roundLength}
                 onComplete={() => {
@@ -165,12 +168,11 @@ const Game: FC = () => {
                   setGameState('round_complete');
                 }}
               />
-            </>
+            </motion.div>
           )}
           {gameState === 'round_complete' && (
             <>
               <h2>Round Complete!</h2>
-              <h1>Round {currentRound}</h1>
               {roundCompleted && (
                 <button
                   type="button"
@@ -197,26 +199,27 @@ const Game: FC = () => {
               />
             </>
           )}
-          <div
-            className={cx(
-              'mt-8 flex flex-wrap gap-8 justify-center items-center',
-              gameState === 'beginning_round' && 'invisible',
-            )}
-            style={{
-              width: 'min(90vw, 1366px)',
-            }}
-          >
-            {modules.map((moduleItem, index) => (
-              <motion.div
-                key={moduleItem.id}
-                initial={{ opacity: 0, y: 200 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index / 10 }}
-              >
-                <moduleItem.module showAnswer={showAnswers} />
-              </motion.div>
-            ))}
-          </div>
+          {gameState !== 'beginning_round' && (
+            <div
+              className={cx(
+                'mt-8 flex flex-wrap gap-8 justify-center items-center',
+              )}
+              style={{
+                width: 'min(90vw, 1366px)',
+              }}
+            >
+              {modules.map((moduleItem, index) => (
+                <motion.div
+                  key={moduleItem.id}
+                  initial={{ opacity: 0, y: 200 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index / 10 }}
+                >
+                  <moduleItem.module showAnswer={showAnswers} />
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       )}
       {gameComplete && (
