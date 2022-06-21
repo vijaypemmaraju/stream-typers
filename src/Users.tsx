@@ -26,8 +26,14 @@ const Users: FC = () => {
                 style={{
                   backgroundColor: userColors[item],
                 }}
+                initial={{
+                  width: 0,
+                }}
                 animate={{
                   width: `${((userPoints[item] || 0) / 1000) * 100}%`,
+                }}
+                transition={{
+                  duration: 0.5,
                 }}
               >
                 {(userPoints[item] || 0) > 200 && (

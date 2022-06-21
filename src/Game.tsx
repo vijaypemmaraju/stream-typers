@@ -47,7 +47,14 @@ const Game: FC = () => {
   const [roundCompleted, setRoundCompleted] = useState(false);
   const gameState = useStore(store => store.gameState);
   const setGameState = useStore(store => store.setGameState);
+  const [usersModalOpen, setUsersModalOpen] = useState(false);
   const modalToggleRef = React.useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (modalToggleRef.current) {
+      modalToggleRef.current.checked = usersModalOpen;
+    }
+  }, [usersModalOpen]);
   const categoryFrequencySettings = usePersistedStore(
     store => store.categoryFrequencySettings,
   );
@@ -174,26 +181,37 @@ const Game: FC = () => {
             <>
               <h2>Round Complete!</h2>
               {roundCompleted && (
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={() => {
-                    setCurrentRound(currentRound + 1);
-                    setGameState('beginning_round');
-                    setShowAnswers(false);
-                    setRoundCompleted(false);
-                    modalToggleRef.current!.checked = false;
-                  }}
-                >
-                  Continue
-                </button>
+                <div className="flex">
+                  <button
+                    type="button"
+                    className="btn"
+                    onClick={() => {
+                      setUsersModalOpen(true);
+                    }}
+                  >
+                    See Scores
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => {
+                      setCurrentRound(currentRound + 1);
+                      setGameState('beginning_round');
+                      setShowAnswers(false);
+                      setRoundCompleted(false);
+                      setUsersModalOpen(false);
+                    }}
+                  >
+                    Continue
+                  </button>
+                </div>
               )}
               <Progress
                 amount={5}
                 onComplete={() => {
                   setRoundCompleted(true);
                   if (!winner) {
-                    modalToggleRef.current!.checked = true;
+                    setUsersModalOpen(true);
                   }
                 }}
               />
@@ -247,14 +265,14 @@ const Game: FC = () => {
       <div className="modal">
         <div className="modal-box max-w-[50vw]">
           <h3 className="text-lg font-bold">Round {currentRound} completed</h3>
-          <Users />
+          {usersModalOpen && <Users />}
           <div className="modal-action">
             <label htmlFor="my-modal">
               <button
                 type="button"
                 className="btn"
                 onClick={() => {
-                  modalToggleRef.current!.checked = false;
+                  setUsersModalOpen(false);
                 }}
               >
                 See Answers
@@ -267,7 +285,7 @@ const Game: FC = () => {
                   setGameState('beginning_round');
                   setShowAnswers(false);
                   setRoundCompleted(true);
-                  modalToggleRef.current!.checked = false;
+                  setUsersModalOpen(false);
                 }}
               >
                 Continue
