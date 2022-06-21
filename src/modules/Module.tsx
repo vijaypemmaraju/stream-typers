@@ -1,7 +1,6 @@
 import cx from 'classnames';
 import { motion, useAnimation } from 'framer-motion';
 import React, { FC, useEffect, useState } from 'react';
-import levenshtein from 'fast-levenshtein';
 import useIncomingChat from '../hooks/useIncomingChat';
 import usePersistedStore from '../usePersistedStore';
 import useStore from '../useStore';
@@ -21,7 +20,7 @@ const Module: FC<ModuleProps> = ({
   text,
   answer,
   onComplete,
-  predicate = message => levenshtein.get(message, answer.toLowerCase()) <= 2,
+  predicate = message => message === answer.toLowerCase(),
   textClassName,
   showAnswer,
 }) => {
