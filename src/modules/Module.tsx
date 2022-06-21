@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import React, { FC, useEffect, useState } from 'react';
 import levenshtein from 'fast-levenshtein';
 import useIncomingChat from '../hooks/useIncomingChat';
@@ -29,6 +29,7 @@ const Module: FC<ModuleProps> = ({
   const addPointsForUser = useStore(store => store.addPointsForUser);
   const userIcons = useStore(store => store.userIcons);
   const streamer = usePersistedStore(store => store.streamer);
+  const controls = useAnimation();
 
   const winnerRef = React.useRef(winner);
 
@@ -67,6 +68,11 @@ const Module: FC<ModuleProps> = ({
       }
       const { setUsers, setWinner: setOverallWinner } = useStore.getState();
       setWinner(user);
+      controls.start({
+        scale: [1, 2.5, 1],
+        rotateZ: [0, -200, 200, -200, 200, 0],
+        transition: { duration: 0.3 },
+      });
       onComplete?.(normalizedMessage);
       addPointsForUser(user, 100);
       // eslint-disable-next-line no-shadow
@@ -87,8 +93,9 @@ const Module: FC<ModuleProps> = ({
     <motion.div
       className={cx(
         'stats shadow text-center min-w-[300px] w-width-[300px] min-h-[200px] box-border transition-all duration-500',
-        winner ? 'bg-green-900' : 'bg-gray-900',
+        winner ? 'bg-green-800' : 'bg-gray-900',
       )}
+      animate={controls}
     >
       <div className="stat min-w-[300px] max-w-[300px]">
         <div className="font-semibold stat-title">

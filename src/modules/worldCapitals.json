@@ -632,10 +632,6 @@
       "capital": "Sanaa"
   },
   {
-      "country": "Country",
-      "capital": "Capital City"
-  },
-  {
       "country": "Australia",
       "capital": "Canberra"
   },
@@ -654,10 +650,6 @@
   {
       "country": "Norfolk Island",
       "capital": "Kingston"
-  },
-  {
-      "country": "Country",
-      "capital": "Capital City"
   },
   {
       "country": "Algeria",
