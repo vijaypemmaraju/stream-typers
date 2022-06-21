@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { countries } from 'country-flags-svg';
+import countries from './countries.json';
 
 import Module from './Module';
 import { ModuleProps } from './props';

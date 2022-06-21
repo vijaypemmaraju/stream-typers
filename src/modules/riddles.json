@@ -1,382 +1,362 @@
 [
 	{
-		"question": "Which letter of the alphabet has the most water?",
-		"answer": "C"
+			"question": "Which letter of the alphabet has the most water?",
+			"answer": "C"
 	},
 	{
-		"question": "What kind of dog keeps the best time?",
-		"answer": "Watchdog"
+			"question": "What kind of dog keeps the best time?",
+			"answer": "Watchdog"
 	},
 	{
-		"question": "What time of day, when written in a capital letters, is the same forwards, backwards and upside down?",
-		"answer": "NOON"
+			"question": "What time of day, when written in a capital letters, is the same forwards, backwards and upside down?",
+			"answer": "NOON"
 	},
 	{
-		"question": "Laughing Out",
-		"answer": "Loud"
+			"question": "Laughing Out",
+			"answer": "Loud"
 	},
 	{
-		"question": "A tasty reward given to well behaved dogs and kids",
-		"answer": "Treat"
+			"question": "A tasty reward given to well behaved dogs and kids",
+			"answer": "Treat"
 	},
 	{
-		"question": "A caribbean shape that makes ships disappear",
-		"answer": "Triangle"
+			"question": "A caribbean shape that makes ships disappear",
+			"answer": "Triangle"
 	},
 	{
-		"question": "It takes two people to do this",
-		"answer": "Tango"
+			"question": "It takes two people to do this",
+			"answer": "Tango"
 	},
 	{
-		"question": "What has a face and two hands but no arms or legs?",
-		"answer": "Clock"
+			"question": "What has a face and two hands but no arms or legs?",
+			"answer": "Clock"
 	},
 	{
-		"question": "What five-letter word becomes shorter when you add two letters to it?",
-		"answer": "Short"
+			"question": "What five-letter word becomes shorter when you add two letters to it?",
+			"answer": "Short"
 	},
 	{
-		"question": "What word begins and ends with an 'E' but only has one letter?",
-		"answer": "Envelope"
+			"question": "What word begins and ends with an 'E' but only has one letter?",
+			"answer": "Envelope"
 	},
 	{
-		"question": "What has a neck but no head?",
-		"answer": "Bottle"
+			"question": "What has a neck but no head?",
+			"answer": "Bottle"
 	},
 	{
-		"question": "What type of cheese is made backwards?",
-		"answer": "Edam"
+			"question": "What type of cheese is made backwards?",
+			"answer": "Edam"
 	},
 	{
-		"question": "What gets wetter as it dries?",
-		"answer": "Towel"
+			"question": "What gets wetter as it dries?",
+			"answer": "Towel"
 	},
 	{
-		"question": "Which letter of the alphabet has the most water?",
-		"answer": "C"
+			"question": "Which letter of the alphabet has the most water?",
+			"answer": "C"
 	},
 	{
-		"question": "What starts with a 'P', ends with an 'E' and has thousands of letters?",
-		"answer": "Post Office"
+			"question": "What has to be broken before you can eat it?",
+			"answer": "Egg"
 	},
 	{
-		"question": "What has to be broken before you can eat it?",
-		"answer": "Egg"
+			"question": "What begins with T, ends with T and has T in it?",
+			"answer": "Teapot"
 	},
 	{
-		"question": "What begins with T, ends with T and has T in it?",
-		"answer": "Teapot"
+			"question": "Teddy bears are never hungry because they are always what?",
+			"answer": "Stuffed"
 	},
 	{
-		"question": "Teddy bears are never hungry because they are always what?",
-		"answer": "Stuffed"
+			"question": "What belongs to you but others use it more than you do?",
+			"answer": "Name"
 	},
 	{
-		"question": "What belongs to you but others use it more than you do?",
-		"answer": "Name"
+			"question": "The more you take aways, the larger it becomes? What is it?",
+			"answer": "Hole"
 	},
 	{
-		"question": "The more you take aways, the larger it becomes? What is it?",
-		"answer": "Hole"
+			"question": "What is full of holes, but can still hold a lot of water?",
+			"answer": "Sponge"
 	},
 	{
-		"question": "What is full of holes, but can still hold a lot of water?",
-		"answer": "Sponge"
+			"question": "Where do fish keep their money?",
+			"answer": "Riverbank"
 	},
 	{
-		"question": "Where do fish keep their money?",
-		"answer": "Riverbank"
+			"question": "What do you get when you cross an automobile with a household animal?",
+			"answer": "Carpet"
 	},
 	{
-		"question": "What do you get when you cross an automobile with a household animal?",
-		"answer": "Carpet"
+			"question": "What bone has a sense of humor?",
+			"answer": "Humorous"
 	},
 	{
-		"question": "What bone has a sense of humor?",
-		"answer": "Humorous"
+			"question": "The more of them you take, the more you leave behind. What are they?",
+			"answer": "Footsteps"
 	},
 	{
-		"question": "The more of them you take, the more you leave behind. What are they?",
-		"answer": "Footsteps"
+			"question": "What is that you will break everytime you name it?",
+			"answer": "Silence"
 	},
 	{
-		"question": "What is that you will break everytime you name it?",
-		"answer": "Silence"
+			"question": "What has four fingers and one thumb, but is not alive?",
+			"answer": "Glove"
 	},
 	{
-		"question": "What has four fingers and one thumb, but is not alive?",
-		"answer": "Glove"
+			"question": "What flies without wings?",
+			"answer": "Time"
 	},
 	{
-		"question": "What flies without wings?",
-		"answer": "Time"
+			"question": "What turns everything around, but does not move?",
+			"answer": "Mirror"
 	},
 	{
-		"question": "What turns everything around, but does not move?",
-		"answer": "Mirror"
+			"question": "What is half of two plus two?",
+			"answer": "Three"
 	},
 	{
-		"question": "What is half of two plus two?",
-		"answer": "Three"
+			"question": "What word looks the same upside down and backwards?",
+			"answer": "Swims"
 	},
 	{
-		"question": "What word looks the same upside down and backwards?",
-		"answer": "Swims"
+			"question": "What kind of fish chases a mouse?",
+			"answer": "Catfish"
 	},
 	{
-		"question": "What kind of fish chases a mouse?",
-		"answer": "Catfish"
+			"question": "Your mother's brother's only brother-in-law is asleep on your couch. Who is asleep on your couch?",
+			"answer": "Dad"
 	},
 	{
-		"question": "Your mother's brother's only brother-in-law is asleep on your couch. Who is asleep on your couch?",
-		"answer": "Dad"
+			"question": "What's the difference between here and there?",
+			"answer": "T"
 	},
 	{
-		"question": "What's the difference between here and there?",
-		"answer": "T"
+			"question": "What goes up and down without moving?",
+			"answer": "Stairs"
 	},
 	{
-		"question": "What goes up and down without moving?",
-		"answer": "Stairs"
+			"question": "Take off my skin and I won't cry, but you will, What am I?",
+			"answer": "Onion"
 	},
 	{
-		"question": "Take off my skin and I won't cry, but you will, What am I?",
-		"answer": "Onion"
+			"question": "What doesn't get any wetter, no matter how much rain falls on it?",
+			"answer": "Water"
 	},
 	{
-		"question": "What doesn't get any wetter, no matter how much rain falls on it?",
-		"answer": "Water"
+			"question": "What sits in a corner while traveling all around the world?",
+			"answer": "Stamp"
 	},
 	{
-		"question": "What sits in a corner while traveling all around the world?",
-		"answer": "Stamp"
+			"question": "I have a face, two arms, and two hands, yet I can not move. I count to twelve, yet I can not speak. I can still tell you something everyday.",
+			"answer": "Clock"
 	},
 	{
-		"question": "I have a face, two arms, and two hands, yet I can not move. I count to twelve, yet I can not speak. I can still tell you something everyday.",
-		"answer": "Clock"
+			"question": "What is round on both ends and hi in the middle?",
+			"answer": "Ohio"
 	},
 	{
-		"question": "What is round on both ends and hi in the middle?",
-		"answer": "Ohio"
+			"question": "What do you call a dog that sweats so much?",
+			"answer": "Hotdog"
 	},
 	{
-		"question": "What do you call a dog that sweats so much?",
-		"answer": "Hotdog"
+			"question": "What rains at the north pole?",
+			"answer": "Reindeer"
 	},
 	{
-		"question": "What do you call a rabbit with fleas?",
-		"answer": "Bugs Bunny"
+			"question": "What kind of apple has a short temper?",
+			"answer": "Crabapple"
 	},
 	{
-		"question": "What rains at the north pole?",
-		"answer": "Reindeer"
+			"question": "What do you do with a dead chemist?",
+			"answer": "Barium"
 	},
 	{
-		"question": "What kind of apple has a short temper?",
-		"answer": "Crabapple"
+			"question": "What calls for help, when written in capital letters, is the same forwards, backwards and upside down?",
+			"answer": "SOS"
 	},
 	{
-		"question": "What do you do with a dead chemist?",
-		"answer": "Barium"
+			"question": "What body part is pronounced as one letter but written with three, only two different letters are used?",
+			"answer": "Eye"
 	},
 	{
-		"question": "What calls for help, when written in capital letters, is the same forwards, backwards and upside down?",
-		"answer": "SOS"
+			"question": "Feed me and I live, give me something to drink and i'll die, What am I?",
+			"answer": "Fire"
 	},
 	{
-		"question": "What body part is pronounced as one letter but written with three, only two different letters are used?",
-		"answer": "Eye"
+			"question": "What keeps things green and keeps kids occupied in the summertime?",
+			"answer": "Sprinkler"
 	},
 	{
-		"question": "Feed me and I live, give me something to drink and i'll die, What am I?",
-		"answer": "Fire"
+			"question": "Old Mcdonald had this",
+			"answer": "Farm"
 	},
 	{
-		"question": "What keeps things green and keeps kids occupied in the summertime?",
-		"answer": "Sprinkler"
+			"question": "Poorly behaved children often find themselves sitting in these",
+			"answer": "Corner"
 	},
 	{
-		"question": "Old Mcdonald had this",
-		"answer": "Farm"
+			"question": "Brings you may flowers",
+			"answer": "Showers"
 	},
 	{
-		"question": "Poorly behaved children often find themselves sitting in these",
-		"answer": "Corner"
+			"question": "A shower that lights up the sky",
+			"answer": "Meteor"
 	},
 	{
-		"question": "Brings you may flowers",
-		"answer": "Showers"
+			"question": "Longer than a decade and shorter than a milennium",
+			"answer": "Century"
 	},
 	{
-		"question": "A shower that lights up the sky",
-		"answer": "Meteor"
+			"question": "Rolling on floor",
+			"answer": "Laughing"
 	},
 	{
-		"question": "Longer than a decade and shorter than a milennium",
-		"answer": "Century"
+			"question": "There are four of these, but everyone's favourite seems to be spades",
+			"answer": "Ace"
 	},
 	{
-		"question": "Rolling on floor",
-		"answer": "Laughing"
+			"question": "Rabbits do this to carrots and Jason Mraz does this to ears",
+			"answer": "Nibble"
 	},
 	{
-		"question": "There are four of these, but everyone's favourite seems to be spades",
-		"answer": "Ace"
+			"question": "These minerals are vital to your health",
+			"answer": "Vitamin"
 	},
 	{
-		"question": "Rabbits do this to carrots and Jason Mraz does this to ears",
-		"answer": "Nibble"
+			"question": "Everyone claims to know a way to stop these involuntary contractions but none of them work",
+			"answer": "Hiccup"
 	},
 	{
-		"question": "These minerals are vital to your health",
-		"answer": "Vitamin"
+			"question": "Has 4 lucky leaves",
+			"answer": "Shamrock"
 	},
 	{
-		"question": "Commits friendly home invasions one night a year",
-		"answer": "Santa claus"
+			"question": "They put the heat in pop tarts",
+			"answer": "Toaster"
 	},
 	{
-		"question": "Treats said to be based on a shephero's staff",
-		"answer": "Candy cane"
+			"question": "What has a ring, but no finger?",
+			"answer": "Telephone"
 	},
 	{
-		"question": "Everyone claims to know a way to stop these involuntary contractions but none of them work",
-		"answer": "Hiccup"
+			"question": "What has four legs, but can't walk?",
+			"answer": "Table"
 	},
 	{
-		"question": "Has 4 lucky leaves",
-		"answer": "Shamrock"
+			"question": "What is higher without the head, than with it?",
+			"answer": "Pillow"
 	},
 	{
-		"question": "One of the best things you can hope for after whacking a ball with a stick",
-		"answer": "Home run"
+			"question": "What is harder to catch the faster you run?",
+			"answer": "Breath"
 	},
 	{
-		"question": "They put the heat in pop tarts",
-		"answer": "Toaster"
+			"question": "What invention lets you look right through a wall?",
+			"answer": "Window"
 	},
 	{
-		"question": "What has a ring, but no finger?",
-		"answer": "Telephone"
+			"question": "What is that you will break everytime you name it?",
+			"answer": "Silence"
 	},
 	{
-		"question": "What has four legs, but can't walk?",
-		"answer": "Table"
+			"question": "What is made of wood, but can't be sawed?",
+			"answer": "Sawdust"
 	},
 	{
-		"question": "What is higher without the head, than with it?",
-		"answer": "Pillow"
+			"question": "What is a witch's favorite school subject?",
+			"answer": "Spelling"
 	},
 	{
-		"question": "What is harder to catch the faster you run?",
-		"answer": "Breath"
+			"question": "What is the saddest fruit?",
+			"answer": "Blueberry"
 	},
 	{
-		"question": "What invention lets you look right through a wall?",
-		"answer": "Window"
+			"question": "What is black and white and read all over?",
+			"answer": "Newspaper"
 	},
 	{
-		"question": "What is that you will break everytime you name it?",
-		"answer": "Silence"
+			"question": "What is easy to get into, and hard to get out of?",
+			"answer": "Trouble"
 	},
 	{
-		"question": "What is made of wood, but can't be sawed?",
-		"answer": "Sawdust"
+			"question": "What is there more of the less you see?",
+			"answer": "Darkness"
 	},
 	{
-		"question": "What is a witch's favorite school subject?",
-		"answer": "Spelling"
+			"question": "If two hours ago, it was as long after one o'clock in the afternoon as it was before one o'clock in the morning, what time would it be now?",
+			"answer": "Nine"
 	},
 	{
-		"question": "What is the saddest fruit?",
-		"answer": "Blueberry"
+			"question": "What is as big as you are and yet does not weigh anything?",
+			"answer": "Shadow"
 	},
 	{
-		"question": "What is black and white and read all over?",
-		"answer": "Newspaper"
+			"question": "What types of words are these: Madam, Civic, Eye, Level?",
+			"answer": "Palindrome"
 	},
 	{
-		"question": "What is easy to get into, and hard to get out of?",
-		"answer": "Trouble"
+			"question": "When you have me, you feel like sharing me. But, if you do share me, you don't have me. What am I?",
+			"answer": "Secret"
 	},
 	{
-		"question": "What is there more of the less you see?",
-		"answer": "Darkness"
+			"question": "The person who makes it has no need for it. The person who purchases it does not use it. The person who does use it does not know he or she is. What is it?",
+			"answer": "Coffin"
 	},
 	{
-		"question": "If two hours ago, it was as long after one o'clock in the afternoon as it was before one o'clock in the morning, what time would it be now?",
-		"answer": "Nine"
+			"question": "It is an insect, and the first part of its name is the name of another insect. What is it?",
+			"answer": "Beetle"
 	},
 	{
-		"question": "What is as big as you are and yet does not weigh anything?",
-		"answer": "Shadow"
+			"question": "What english word retains the same pronunciation, even after you take away four of its five letters?",
+			"answer": "Queue"
 	},
 	{
-		"question": "What types of words are these: Madam, Civic, Eye, Level?",
-		"answer": "Palindrome"
+			"question": "What becomes white when it is dirty?",
+			"answer": "Blackboard"
 	},
 	{
-		"question": "When you have me, you feel like sharing me. But, if you do share me, you don't have me. What am I?",
-		"answer": "Secret"
+			"question": "What word of five letters has only one left when two letters are removed?",
+			"answer": "Stone"
 	},
 	{
-		"question": "The person who makes it has no need for it. The person who purchases it does not use it. The person who does use it does not know he or she is. What is it?",
-		"answer": "Coffin"
+			"question": "How many 9's are there between 1 and 100?",
+			"answer": "Twenty"
 	},
 	{
-		"question": "It is an insect, and the first part of its name is the name of another insect. What is it?",
-		"answer": "Beetle"
+			"question": "Which vehicle is spelled the same forwards and backwards?",
+			"answer": "Racecar"
 	},
 	{
-		"question": "What english word retains the same pronunciation, even after you take away four of its five letters?",
-		"answer": "Queue"
+			"question": "I am lighter than air but a million men cannot lift me up, What am I?",
+			"answer": "Bubble"
 	},
 	{
-		"question": "What becomes white when it is dirty?",
-		"answer": "Blackboard"
+			"question": "Five men were eating apples, a finished before B, but behind C. D finished before E, but behind B. What was the finishing order?",
+			"answer": "CABDE"
 	},
 	{
-		"question": "What word of five letters has only one left when two letters are removed?",
-		"answer": "Stone"
+			"question": "David's father has three sons: Snap, Crackle, and ?",
+			"answer": "David"
 	},
 	{
-		"question": "How many 9's are there between 1 and 100?",
-		"answer": "Twenty"
+			"question": "It is everything to someone, and nothing to everyone else. What is it?",
+			"answer": "Mind"
 	},
 	{
-		"question": "Which vehicle is spelled the same forwards and backwards?",
-		"answer": "Racecar"
+			"question": "What has a mouth but can't chew?",
+			"answer": "River"
 	},
 	{
-		"question": "I am lighter than air but a million men cannot lift me up, What am I?",
-		"answer": "Bubble"
+			"question": "If it is two hours later, then it will take half as much time till it's midnight as it would be if it were an hour later. What time is it?",
+			"answer": "Nine"
 	},
 	{
-		"question": "Five men were eating apples, a finished before B, but behind C. D finished before E, but behind B. What was the finishing order?",
-		"answer": "CABDE"
+			"question": "Forward I am heavy, backwards I am not. What am I?",
+			"answer": "Ton"
 	},
 	{
-		"question": "David's father has three sons: Snap, Crackle, and ?",
-		"answer": "David"
-	},
-	{
-		"question": "It is everything to someone, and nothing to everyone else. What is it?",
-		"answer": "Mind"
-	},
-	{
-		"question": "What has a mouth but can't chew?",
-		"answer": "River"
-	},
-	{
-		"question": "If it is two hours later, then it will take half as much time till it's midnight as it would be if it were an hour later. What time is it?",
-		"answer": "Nine"
-	},
-	{
-		"question": "Forward I am heavy, backwards I am not. What am I?",
-		"answer": "Ton"
-	},
-	{
-		"question": "What object has keys that open no locks, space but no room, and you can enter but not go in?",
-		"answer": "Keyboard"
+			"question": "What object has keys that open no locks, space but no room, and you can enter but not go in?",
+			"answer": "Keyboard"
 	}
 ]
