@@ -68,9 +68,9 @@ const Module: FC<ModuleProps> = ({
       const { setUsers, setWinner: setOverallWinner } = useStore.getState();
       setWinner(user);
       controls.start({
-        scale: [1, 2.5, 1],
-        rotateZ: [0, -200, 200, -200, 200, 0],
-        transition: { duration: 0.3 },
+        scale: [1, 5, 1],
+        rotateZ: [0, -400, 400, -400, 400, 0],
+        transition: { duration: 0.5 },
       });
       onComplete?.(normalizedMessage);
       addPointsForUser(user, 100);
