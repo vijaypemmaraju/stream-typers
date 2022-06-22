@@ -49,7 +49,7 @@ const Settings: FC = () => {
         <input
           type="range"
           min="8"
-          max="20"
+          max="15"
           value={questionsPerRound}
           className="range"
           onChange={e => setQuestionsPerRound(+e.target.value)}
@@ -57,7 +57,7 @@ const Settings: FC = () => {
         />
       </div>
       <div className="flex justify-between w-full px-2 text-xs text-center">
-        {new Array(20 - 8 + 1).fill(0).map((_, i) => (
+        {new Array(15 - 8 + 1).fill(0).map((_, i) => (
           <span>
             <div>|</div>
             <div>{i + 8}</div>

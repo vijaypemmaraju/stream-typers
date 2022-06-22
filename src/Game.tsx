@@ -224,7 +224,7 @@ const Game: FC = () => {
                 'mt-8 flex flex-wrap gap-8 justify-center items-center',
               )}
               style={{
-                width: 'min(90vw, 1366px)',
+                width: modules.length > 12 ? '90vw' : 'min(90vw, 1440px)',
               }}
             >
               {modules.map((moduleItem, index) => (
