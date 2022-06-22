@@ -2311,6 +2311,12 @@ html {
   border-radius: 0px;
 }
 
+.link {
+  cursor: pointer;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
+
 .menu > :where(li.disabled > *:not(ul):focus) {
   cursor: auto;
 }
@@ -2862,6 +2868,16 @@ body[dir="rtl"] .checkbox:checked,
   .input[disabled]::placeholder {
   color: hsl(var(--bc) / var(--tw-placeholder-opacity));
   --tw-placeholder-opacity: 0.2;
+}
+
+.link:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .menu li.disabled > * {
@@ -3516,11 +3532,6 @@ body[dir="rtl"] .checkbox:checked,
   padding: 0.5rem;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -3540,12 +3551,12 @@ body[dir="rtl"] .checkbox:checked,
   padding-left: 0px;
 }
 
-.pb-4 {
-  padding-bottom: 1rem;
-}
-
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
 }
 
 .text-center {

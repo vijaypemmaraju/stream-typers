@@ -116,6 +116,17 @@ const Lobby: FC = () => {
         >
           Stream Typers
         </h1>
+        <h4 className="text-center">
+          by{' '}
+          <a
+            className="link"
+            href="https://twitch.tv/elevatelol"
+            target="_blank"
+            rel="noreferrer"
+          >
+            @elevatelol
+          </a>
+        </h4>
       </div>
       <div className="p-5">
         <div className="w-full max-w-xs form-control">
