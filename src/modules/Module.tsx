@@ -91,7 +91,7 @@ const Module: FC<ModuleProps> = ({
         return bPoints - aPoints;
       });
       setUsers(Array.from(new Set(sortedUsers)));
-      if (userPoints[sortedUsers[0]] >= 10) {
+      if (userPoints[sortedUsers[0]] >= 1000) {
         setOverallWinner(sortedUsers[0]);
       }
     }
