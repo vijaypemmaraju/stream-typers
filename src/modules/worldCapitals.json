@@ -60,10 +60,6 @@
         "capital": "Budapest"
     },
     {
-        "country": "Iceland",
-        "capital": "Reykjavík"
-    },
-    {
         "country": "Ireland",
         "capital": "Dublin"
     },
@@ -184,20 +180,12 @@
         "capital": "Sucre"
     },
     {
-        "country": "Brazil",
-        "capital": "Brasília"
-    },
-    {
         "country": "Canada",
         "capital": "Ottawa"
     },
     {
         "country": "Chile",
         "capital": "Santiago"
-    },
-    {
-        "country": "Colombia",
-        "capital": "Bogotá"
     },
     {
         "country": "Cuba",
@@ -238,10 +226,6 @@
     {
         "country": "Nicaragua",
         "capital": "Managua"
-    },
-    {
-        "country": "Paraguay",
-        "capital": "Asunción"
     },
     {
         "country": "Peru",
@@ -336,10 +320,6 @@
         "capital": "Beirut"
     },
     {
-        "country": "Maldives",
-        "capital": "Malé"
-    },
-    {
         "country": "Mongolia",
         "capital": "Ulaanbaatar"
     },
@@ -426,14 +406,6 @@
     {
         "country": "Burundi",
         "capital": "Bujumbura"
-    },
-    {
-        "country": "Cameroon",
-        "capital": "Yaoundé"
-    },
-    {
-        "country": "Chad",
-        "capital": "N'Djamena"
     },
     {
         "country": "Comoros",
@@ -552,10 +524,6 @@
         "capital": "Dodoma"
     },
     {
-        "country": "Togo",
-        "capital": "Lomé"
-    },
-    {
         "country": "Tunisia",
         "capital": "Tunis"
     },
@@ -576,10 +544,6 @@
         "capital": "Suva"
     },
     {
-        "country": "Guam",
-        "capital": "Hagåtña"
-    },
-    {
         "country": "Kiribati",
         "capital": "Tarawa"
     },
@@ -594,10 +558,6 @@
     {
         "country": "Samoa",
         "capital": "Apia"
-    },
-    {
-        "country": "Tonga",
-        "capital": "Nuku‘alofa"
     },
     {
         "country": "Tuvalu",
