@@ -67,6 +67,7 @@ const Settings: FC = () => {
           </span>
         ))}
       </div>
+      <div className="divider" />
       <h3>Audio</h3>
       <div className="w-full pt-4 form-control">
         <label className="label">
@@ -82,6 +83,7 @@ const Settings: FC = () => {
           step="1"
         />
       </div>
+      <div className="divider" />
       <h3>Categories</h3>
       <div className="pb-4">
         {categories.map(category => (
