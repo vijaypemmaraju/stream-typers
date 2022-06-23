@@ -2324,16 +2324,16 @@ body[dir="rtl"] .checkbox:checked,
   width: 25vw;
 }
 
-.w-8 {
-  width: 2rem;
+.w-12 {
+  width: 3rem;
 }
 
 .w-\[80\%\] {
   width: 80%;
 }
 
-.w-12 {
-  width: 3rem;
+.w-8 {
+  width: 2rem;
 }
 
 .min-w-\[300px\] {

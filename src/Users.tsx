@@ -36,7 +36,7 @@ const Users: FC = () => {
                   duration: 0.5,
                 }}
               >
-                {(userPoints[item] || 0) > 200 && (
+                {(userPoints[item] || 0) > 350 && (
                   <h2 className="flex items-center px-3 m-0 text-lg text-black">
                     <img
                       src={userIcons[item]}
@@ -47,7 +47,7 @@ const Users: FC = () => {
                   </h2>
                 )}
               </motion.div>
-              {(userPoints[item] || 0) <= 200 && (
+              {(userPoints[item] || 0) <= 350 && (
                 <h2 className="flex items-center px-3 m-0 text-lg text-white">
                   <img
                     src={userIcons[item]}
