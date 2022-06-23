@@ -14,6 +14,8 @@ type Store = {
   setRoundLength: (roundLength: number) => void;
   questionsPerRound: number;
   setQuestionsPerRound: (questionsPerRound: number) => void;
+  masterVolume: number;
+  setMasterVolume: (masterVolume: number) => void;
 };
 
 // eslint-disable-next-line import/prefer-default-export
@@ -47,6 +49,8 @@ const usePersistedStore = create<Store>(
       setRoundLength: roundLength => set({ roundLength }),
       questionsPerRound: 12,
       setQuestionsPerRound: questionsPerRound => set({ questionsPerRound }),
+      masterVolume: 100,
+      setMasterVolume: masterVolume => set({ masterVolume }),
     }),
     { name: 'store' },
   ),

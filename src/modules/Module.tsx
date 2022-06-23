@@ -2,6 +2,7 @@ import cx from 'classnames';
 import { motion, useAnimation } from 'framer-motion';
 import React, { FC, useEffect, useState } from 'react';
 import useIncomingChat from '../hooks/useIncomingChat';
+import playAudio from '../playAudio';
 import usePersistedStore from '../usePersistedStore';
 import useStore from '../useStore';
 
@@ -74,9 +75,7 @@ const Module: FC<ModuleProps> = ({
       }
       const { setUsers, setWinner: setOverallWinner } = useStore.getState();
       setWinner(user);
-      const audio = new Audio('./score.flac');
-      audio.volume = 0.8;
-      audio.play();
+      playAudio('./score.flac', 0.8);
       controls.start({
         scale: [1, 5, 1],
         rotateZ: [0, -400, 400, -400, 400, 0],

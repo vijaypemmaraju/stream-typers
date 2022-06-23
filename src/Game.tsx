@@ -16,6 +16,7 @@ import WorldCountry from './modules/WorldCountry';
 import usePersistedStore from './usePersistedStore';
 import confetti from './confetti';
 import useIncomingChat from './hooks/useIncomingChat';
+import playAudio from './playAudio';
 
 const categories = {
   Unscramble,
@@ -78,8 +79,7 @@ const Game: FC = () => {
       } as ModuleItem);
     }
     setModules(chosenModules);
-    const audio = new Audio('./game-start.mp3');
-    audio.play();
+    playAudio('./game-start.mp3');
   }, [currentRound]);
 
   useEffect(() => {
@@ -90,10 +90,7 @@ const Game: FC = () => {
           clearInterval(interval);
           return;
         }
-        const audio = new Audio('./woosh.flac');
-        audio.volume = 0.3;
-        audio.playbackRate = Math.random() * 0.2 + 0.9;
-        audio.play();
+        playAudio('./woosh.flac', 0.3, Math.random() * 0.2 + 0.9);
         plays += 1;
       }, 100);
     }
@@ -105,8 +102,7 @@ const Game: FC = () => {
 
   useEffect(() => {
     if (gameComplete) {
-      const audio = new Audio('./win.flac');
-      audio.play();
+      playAudio('./win.flac');
       confetti();
     }
   }, [gameComplete]);

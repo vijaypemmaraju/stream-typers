@@ -25,6 +25,9 @@ const Settings: FC = () => {
   const setQuestionsPerRound = usePersistedStore(
     store => store.setQuestionsPerRound,
   );
+
+  const masterVolume = usePersistedStore(store => store.masterVolume);
+  const setMasterVolume = usePersistedStore(store => store.setMasterVolume);
   return (
     <>
       <h3>Game</h3>
@@ -63,6 +66,21 @@ const Settings: FC = () => {
             <div>{i + 8}</div>
           </span>
         ))}
+      </div>
+      <h3>Audio</h3>
+      <div className="w-full pt-4 form-control">
+        <label className="label">
+          <span className="label-text">Volume</span>
+        </label>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={masterVolume}
+          className="range"
+          onChange={e => setMasterVolume(+e.target.value)}
+          step="1"
+        />
       </div>
       <h3>Categories</h3>
       <div className="pb-4">
