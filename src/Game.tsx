@@ -78,7 +78,26 @@ const Game: FC = () => {
       } as ModuleItem);
     }
     setModules(chosenModules);
+    const audio = new Audio('./game-start.mp3');
+    audio.play();
   }, [currentRound]);
+
+  useEffect(() => {
+    if (gameState === 'round_in_progress') {
+      let plays = 0;
+      const interval = setInterval(() => {
+        if (plays >= questionsPerRound) {
+          clearInterval(interval);
+          return;
+        }
+        const audio = new Audio('./woosh.flac');
+        audio.volume = 0.3;
+        audio.playbackRate = Math.random() * 0.2 + 0.9;
+        audio.play();
+        plays += 1;
+      }, 100);
+    }
+  }, [gameState, currentRound]);
 
   const roundLength = usePersistedStore(store => store.roundLength);
 
@@ -86,6 +105,8 @@ const Game: FC = () => {
 
   useEffect(() => {
     if (gameComplete) {
+      const audio = new Audio('./win.flac');
+      audio.play();
       confetti();
     }
   }, [gameComplete]);

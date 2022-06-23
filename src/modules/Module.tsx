@@ -74,6 +74,9 @@ const Module: FC<ModuleProps> = ({
       }
       const { setUsers, setWinner: setOverallWinner } = useStore.getState();
       setWinner(user);
+      const audio = new Audio('./score.flac');
+      audio.volume = 0.8;
+      audio.play();
       controls.start({
         scale: [1, 5, 1],
         rotateZ: [0, -400, 400, -400, 400, 0],
@@ -89,7 +92,7 @@ const Module: FC<ModuleProps> = ({
         return bPoints - aPoints;
       });
       setUsers(Array.from(new Set(sortedUsers)));
-      if (userPoints[sortedUsers[0]] >= 1000) {
+      if (userPoints[sortedUsers[0]] >= 10) {
         setOverallWinner(sortedUsers[0]);
       }
     }
