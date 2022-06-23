@@ -41,11 +41,8 @@ const Module: FC<ModuleProps> = ({
     if (winnerRef.current) {
       return;
     }
-    const { winner: overallWinner, gameState, users } = useStore.getState();
+    const { gameState, users } = useStore.getState();
     if (gameState !== 'round_in_progress') {
-      return;
-    }
-    if (gameState !== 'round_in_progress' && overallWinner) {
       return;
     }
     const normalizedMessage = message.toLowerCase().trim();
@@ -66,14 +63,11 @@ const Module: FC<ModuleProps> = ({
           return;
         }
 
-        if (gameState !== 'round_in_progress') {
-          return;
-        }
-        if (gameState !== 'round_in_progress' && overallWinner) {
+        if (useStore.getState().gameState !== 'round_in_progress') {
           return;
         }
       }
-      const { setUsers, setWinner: setOverallWinner } = useStore.getState();
+      const { setUsers, addWinner } = useStore.getState();
       setWinner(user);
       playAudio('./score.flac', 0.8);
       controls.start({
@@ -92,7 +86,7 @@ const Module: FC<ModuleProps> = ({
       });
       setUsers(Array.from(new Set(sortedUsers)));
       if (userPoints[sortedUsers[0]] >= 1000) {
-        setOverallWinner(sortedUsers[0]);
+        addWinner(sortedUsers[0]);
       }
     }
   });

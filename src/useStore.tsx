@@ -22,8 +22,9 @@ type Store = {
   randomWordIndex: number;
   setUsers: (users: string[]) => void;
   setMode: (mode: 'lobby' | 'game') => void;
-  winner: string | null;
-  setWinner: (winner: string | null) => void;
+  winners: string[];
+  addWinner: (winner: string) => void;
+  resetWinners: () => void;
   setRandomWordIndex: (randomWordIndex: number) => void;
 };
 
@@ -71,8 +72,12 @@ const useStore = create<Store>((set, get) => ({
   randomWordIndex: Math.floor(Math.random() * words.length),
   setUsers: users => set({ users }),
   setMode: mode => set({ mode }),
-  winner: null,
-  setWinner: winner => set({ winner }),
+  winners: [],
+  addWinner: winner =>
+    set({
+      winners: Array.from(new Set([...get().winners, winner])),
+    }),
+  resetWinners: () => set({ winners: [] }),
   setRandomWordIndex: randomWordIndex => set({ randomWordIndex }),
 }));
 

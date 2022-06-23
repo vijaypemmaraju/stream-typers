@@ -49,7 +49,7 @@ const Lobby: FC = () => {
             const user = await apiClient.users.getUserById(msg.userInfo.userId);
             setIconForUser(userName, user!.profilePictureUrl);
             if (mode === 'lobby') {
-              if (message === '!join') {
+              if (message.toLowerCase().trim() === '!join') {
                 if (users.length >= 20) {
                   return;
                 }

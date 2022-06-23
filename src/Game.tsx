@@ -41,7 +41,7 @@ function fire(particleRatio, opts) {
 }
 
 const Game: FC = () => {
-  const winner = useStore(store => store.winner);
+  const winners = useStore(store => store.winners);
   const [modules, setModules] = useState<ModuleItem[]>([]);
   const [showAnswers, setShowAnswers] = useState(false);
   const [currentRound, setCurrentRound] = useState(1);
@@ -197,7 +197,7 @@ const Game: FC = () => {
           {gameState === 'round_complete' && (
             <>
               <h2>Round Complete!</h2>
-              {roundCompleted && !winner && (
+              {roundCompleted && winners.length === 0 && (
                 <div className="flex">
                   <button
                     type="button"
@@ -223,18 +223,18 @@ const Game: FC = () => {
                   </button>
                 </div>
               )}
-              {!winner && (
+              {winners.length === 0 && (
                 <Progress
                   amount={5}
                   onComplete={() => {
                     setRoundCompleted(true);
-                    if (!winner) {
+                    if (winners.length === 0) {
                       setUsersModalOpen(true);
                     }
                   }}
                 />
               )}
-              {winner && (
+              {winners.length > 0 && (
                 <button
                   type="button"
                   className="btn btn-primary"
@@ -274,7 +274,20 @@ const Game: FC = () => {
         <div className="flex flex-col items-center justify-center">
           <div className="divider" />
           <motion.div className="w-full text-center">
-            <h2>{winner} is the winner!</h2>
+            {winners.length === 1 && <h2>{winners[0]} is the winner!</h2>}
+            {winners.length > 1 && (
+              <h2>
+                {"It's a tie between "}
+                {winners.map((winner, index) => (
+                  <span key={index}>
+                    {winner}
+                    {index !== winners.length - 1 && ', '}
+                    {index === winners.length - 2 && ' and '}
+                  </span>
+                ))}
+                !
+              </h2>
+            )}
           </motion.div>
           <button
             type="button"
