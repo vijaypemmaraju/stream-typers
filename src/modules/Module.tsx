@@ -64,6 +64,13 @@ const Module: FC<ModuleProps> = ({
         if (winnerRef.current) {
           return;
         }
+
+        if (gameState !== 'round_in_progress') {
+          return;
+        }
+        if (gameState !== 'round_in_progress' && overallWinner) {
+          return;
+        }
       }
       const { setUsers, setWinner: setOverallWinner } = useStore.getState();
       setWinner(user);

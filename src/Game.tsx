@@ -82,8 +82,7 @@ const Game: FC = () => {
 
   const roundLength = usePersistedStore(store => store.roundLength);
 
-  const gameComplete =
-    !!winner && gameState === 'round_complete' && roundCompleted;
+  const [gameComplete, setGameComplete] = useState(false);
 
   useEffect(() => {
     if (gameComplete) {
@@ -181,7 +180,7 @@ const Game: FC = () => {
           {gameState === 'round_complete' && (
             <>
               <h2>Round Complete!</h2>
-              {roundCompleted && (
+              {roundCompleted && !winner && (
                 <div className="flex">
                   <button
                     type="button"
@@ -207,15 +206,28 @@ const Game: FC = () => {
                   </button>
                 </div>
               )}
-              <Progress
-                amount={5}
-                onComplete={() => {
-                  setRoundCompleted(true);
-                  if (!winner) {
-                    setUsersModalOpen(true);
-                  }
-                }}
-              />
+              {!winner && (
+                <Progress
+                  amount={5}
+                  onComplete={() => {
+                    setRoundCompleted(true);
+                    if (!winner) {
+                      setUsersModalOpen(true);
+                    }
+                  }}
+                />
+              )}
+              {winner && (
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => {
+                    setGameComplete(true);
+                  }}
+                >
+                  Continue
+                </button>
+              )}
             </>
           )}
           {gameState !== 'beginning_round' && (
