@@ -20,11 +20,14 @@ const Lobby: FC = () => {
   const setStreamer = usePersistedStore(store => store.setStreamer);
   const accessToken = usePersistedStore(store => store.accessToken);
   const setAccessToken = usePersistedStore(store => store.setAccessToken);
+  const maxPlayers = usePersistedStore(store => store.maxPlayers);
 
   const [currentUser, setCurrentUser] =
     React.useState<HelixPrivilegedUser | null>(null);
 
   const addColorForUser = useStore(store => store.addColorForUser);
+
+  const modalToggleRef = React.useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     const loader = async () => {
@@ -43,6 +46,9 @@ const Lobby: FC = () => {
       chatClient.connect().then(() => {
         chatClient.onMessage(
           async (_channel: string, _user: string, message: string, msg) => {
+            if (modalToggleRef.current!.checked) {
+              return;
+            }
             // eslint-disable-next-line no-shadow
             const { mode, users } = useStore.getState();
             const userName = msg.userInfo.displayName.toLowerCase();
@@ -50,7 +56,7 @@ const Lobby: FC = () => {
             setIconForUser(userName, user!.profilePictureUrl);
             if (mode === 'lobby') {
               if (message.toLowerCase().trim() === '!join') {
-                if (users.length >= 20) {
+                if (users.length >= usePersistedStore.getState().maxPlayers) {
                   return;
                 }
                 users.push(userName);
@@ -95,8 +101,6 @@ const Lobby: FC = () => {
       }
     })();
   }, [accessToken]);
-
-  const modalToggleRef = React.useRef<HTMLInputElement | null>(null);
 
   return (
     <>
@@ -190,7 +194,9 @@ const Lobby: FC = () => {
           <div className="bg-gray-900 stats">
             <div className="stat">
               <div className="stat-title">Connected Players</div>
-              <div className="stat-value">{users.length} / 20</div>
+              <div className="stat-value">
+                {users.length} / {maxPlayers}
+              </div>
             </div>
           </div>
           <Reorder.Group

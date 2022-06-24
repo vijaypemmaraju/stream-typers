@@ -12,6 +12,8 @@ type Store = {
   updateCategoryFrequencySetting: (key: string, value: number) => void;
   roundLength: number;
   setRoundLength: (roundLength: number) => void;
+  maxPlayers: number;
+  setMaxPlayers: (maxPlayers: number) => void;
   questionsPerRound: number;
   setQuestionsPerRound: (questionsPerRound: number) => void;
   masterVolume: number;
@@ -51,6 +53,8 @@ const usePersistedStore = create<Store>(
       setQuestionsPerRound: questionsPerRound => set({ questionsPerRound }),
       masterVolume: 100,
       setMasterVolume: masterVolume => set({ masterVolume }),
+      maxPlayers: 20,
+      setMaxPlayers: maxPlayers => set({ maxPlayers }),
     }),
     { name: 'store' },
   ),

@@ -28,6 +28,9 @@ const Settings: FC = () => {
 
   const masterVolume = usePersistedStore(store => store.masterVolume);
   const setMasterVolume = usePersistedStore(store => store.setMasterVolume);
+
+  const maxPlayers = usePersistedStore(store => store.maxPlayers);
+  const setMaxPlayers = usePersistedStore(store => store.setMaxPlayers);
   return (
     <>
       <h3>Game</h3>
@@ -43,6 +46,17 @@ const Settings: FC = () => {
           className="input input-bordered"
           step="1"
           onChange={e => setRoundLength(+e.target.value)}
+        />
+        <label className="label">
+          <span className="label-text">Max Players</span>
+        </label>
+        <input
+          type="number"
+          min="1"
+          value={maxPlayers}
+          className="input input-bordered"
+          step="1"
+          onChange={e => setMaxPlayers(+e.target.value)}
         />
       </div>
       <div className="w-full pt-4 form-control">
