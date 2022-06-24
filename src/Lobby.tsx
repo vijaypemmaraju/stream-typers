@@ -44,6 +44,12 @@ const Lobby: FC = () => {
         accessToken,
       );
       const apiClient = new ApiClient({ authProvider });
+      Object.keys(usePersistedStore.getState().winners).forEach(
+        async winner => {
+          const user = await apiClient.users.getUserByName(winner);
+          setIconForUser(winner, user!.profilePictureUrl);
+        },
+      );
       chatClient.connect().then(() => {
         chatClient.onMessage(
           async (_channel: string, _user: string, message: string, msg) => {

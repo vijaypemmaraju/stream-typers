@@ -1,8 +1,11 @@
+import cx from 'classnames';
 import React, { FC, useState } from 'react';
 import usePersistedStore from './usePersistedStore';
+import useStore from './useStore';
 
 const Stats: FC = () => {
   const winners = usePersistedStore(store => store.winners);
+  const userIcons = useStore(store => store.userIcons);
   const resetWinners = usePersistedStore(store => store.resetWinners);
   const [resetConfirmation, setResetConfirmation] = useState(false);
 
@@ -23,14 +26,25 @@ const Stats: FC = () => {
         <table className="table w-full mt-0">
           <thead>
             <tr>
-              <th className="text-left bg-gray-900">Username</th>
-              <th className="text-left bg-gray-900">Wins</th>
+              <th className="text-lg text-left bg-gray-900">Username</th>
+              <th className="text-lg text-left bg-gray-900">Wins</th>
             </tr>
           </thead>
           <tbody>
             {sortedWinners.map(winner => (
               <tr key={winner}>
-                <td className="text-xl font-bold bg-gray-900">{winner}</td>
+                <td className="flex items-center justify-start gap-4 text-xl font-bold bg-gray-900">
+                  {' '}
+                  <img
+                    src={userIcons[winner]}
+                    alt={winner}
+                    className={cx(
+                      'w-12 h-12 m-0',
+                      !userIcons[winner] && 'opacity-0',
+                    )}
+                  />
+                  {winner}
+                </td>
                 <td className="text-xl font-bold bg-gray-900">
                   {winners[winner]}
                 </td>
