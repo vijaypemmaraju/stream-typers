@@ -33,7 +33,7 @@ const usePersistedStore = create<Store>(
         Unscramble: 2,
         Flags: 2,
         Math: 2,
-        Riddle: 2,
+        Riddle: 1,
         Trivia: 2,
         Capitals: 2,
         Countries: 2,
