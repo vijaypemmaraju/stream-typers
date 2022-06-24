@@ -158,6 +158,14 @@ const Game: FC = () => {
     };
   }, [flipped]);
 
+  useEffect(() => {
+    if (gameComplete) {
+      winners.forEach(winner => {
+        usePersistedStore.getState().addWin(winner);
+      });
+    }
+  }, [gameComplete]);
+
   return (
     <motion.div
       className="w-[100vw] flex justify-center items-center"

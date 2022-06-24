@@ -18,6 +18,11 @@ type Store = {
   setQuestionsPerRound: (questionsPerRound: number) => void;
   masterVolume: number;
   setMasterVolume: (masterVolume: number) => void;
+  winners: {
+    [key: string]: number;
+  };
+  addWin: (winner: string) => void;
+  resetWinners: () => void;
 };
 
 // eslint-disable-next-line import/prefer-default-export
@@ -55,6 +60,21 @@ const usePersistedStore = create<Store>(
       setMasterVolume: masterVolume => set({ masterVolume }),
       maxPlayers: 20,
       setMaxPlayers: maxPlayers => set({ maxPlayers }),
+      winners: {},
+      addWin: winner => {
+        const { winners } = get();
+        set({
+          winners: {
+            ...winners,
+            [winner]: (winners[winner] || 0) + 1,
+          },
+        });
+      },
+      resetWinners: () => {
+        set({
+          winners: {},
+        });
+      },
     }),
     { name: 'store' },
   ),
