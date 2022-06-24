@@ -127,7 +127,7 @@ const Lobby: FC = () => {
           >
             Stream Typers
           </h1>
-          <h4 className="text-center">
+          {/* <h4 className="text-center">
             by{' '}
             <a
               className="link"
@@ -137,7 +137,7 @@ const Lobby: FC = () => {
             >
               @elevatelol
             </a>
-          </h4>
+          </h4> */}
         </div>
         <div className="p-5">
           <div className="w-full max-w-xs form-control">
