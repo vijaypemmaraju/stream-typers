@@ -30,7 +30,7 @@ const Users: FC = () => {
                   width: 0,
                 }}
                 animate={{
-                  width: `${((userPoints[item] || 0) / 1000) * 100}%`,
+                  width: `${((userPoints[item] || 0) / 1500) * 100}%`,
                 }}
                 transition={{
                   duration: 0.5,
