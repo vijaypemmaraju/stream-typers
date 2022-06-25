@@ -343,7 +343,7 @@ const Game: FC = () => {
                   setCurrentRound(currentRound + 1);
                   setGameState('beginning_round');
                   setShowAnswers(false);
-                  setRoundCompleted(true);
+                  setRoundCompleted(false);
                   setUsersModalOpen(false);
                 }}
               >
