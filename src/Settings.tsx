@@ -12,6 +12,7 @@ export const categories = [
   'Pokémon',
   'US States',
   'US Capitals',
+  'Country Shapes',
 ];
 
 const Settings: FC = () => {

@@ -20,6 +20,7 @@ import playAudio from './playAudio';
 import Pokemon from './modules/Pokemon';
 import USState from './modules/USState';
 import USCapital from './modules/USCapital';
+import CountryShapes from './modules/CountryShapes';
 
 const categories = {
   Unscramble,
@@ -32,6 +33,7 @@ const categories = {
   Pokémon: Pokemon,
   'US States': USState,
   'US Capitals': USCapital,
+  'Country Shapes': CountryShapes,
 };
 
 type ModuleItem = {
