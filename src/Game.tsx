@@ -18,6 +18,8 @@ import confetti from './confetti';
 import useIncomingChat from './hooks/useIncomingChat';
 import playAudio from './playAudio';
 import Pokemon from './modules/Pokemon';
+import USState from './modules/USState';
+import USCapital from './modules/USCapital';
 
 const categories = {
   Unscramble,
@@ -28,6 +30,8 @@ const categories = {
   Capitals: WorldCapital,
   Countries: WorldCountry,
   Pokémon: Pokemon,
+  'US States': USState,
+  'US Capitals': USCapital,
 };
 
 type ModuleItem = {

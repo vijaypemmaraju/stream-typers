@@ -10,6 +10,8 @@ export const categories = [
   'Capitals',
   'Countries',
   'Pokémon',
+  'US States',
+  'US Capitals',
 ];
 
 const Settings: FC = () => {
