@@ -16,7 +16,8 @@ const CountryShapes: FC<ModuleProps> = ({ onComplete, showAnswer }) => {
         <img
           alt=""
           src={`/countrySvgs/${countryShapes[randomIndex].key}.svg`}
-          height="100"
+          width="150"
+          className="inline-flex m-0"
         />
       }
       onComplete={onComplete}
