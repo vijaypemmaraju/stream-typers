@@ -42,6 +42,7 @@ const usePersistedStore = create<Store>(
         Trivia: 2,
         Capitals: 2,
         Countries: 2,
+        Pokémon: 0,
       },
       updateCategoryFrequencySetting: (category, value) => {
         const { categoryFrequencySettings } = get();

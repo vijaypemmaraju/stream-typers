@@ -17,6 +17,7 @@ import usePersistedStore from './usePersistedStore';
 import confetti from './confetti';
 import useIncomingChat from './hooks/useIncomingChat';
 import playAudio from './playAudio';
+import Pokemon from './modules/Pokemon';
 
 const categories = {
   Unscramble,
@@ -26,6 +27,7 @@ const categories = {
   Trivia,
   Capitals: WorldCapital,
   Countries: WorldCountry,
+  Pokémon: Pokemon,
 };
 
 type ModuleItem = {

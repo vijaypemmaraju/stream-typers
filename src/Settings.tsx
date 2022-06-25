@@ -9,6 +9,7 @@ export const categories = [
   'Trivia',
   'Capitals',
   'Countries',
+  'Pokémon',
 ];
 
 const Settings: FC = () => {
@@ -110,7 +111,7 @@ const Settings: FC = () => {
                 type="range"
                 min="0"
                 max="4"
-                value={categoryFrequencySettings[category]}
+                value={categoryFrequencySettings[category] || 0}
                 className="range"
                 onChange={e =>
                   updateCategoryFrequencySetting(category, +e.target.value)
