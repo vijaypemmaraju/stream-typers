@@ -76,7 +76,9 @@ const Module: FC<ModuleProps> = ({
         transition: { duration: 0.5 },
       });
       onComplete?.(normalizedMessage);
-      addPointsForUser(user, 100);
+      if (winners.length === 0) {
+        addPointsForUser(user, 100);
+      }
       // eslint-disable-next-line no-shadow
       const { userPoints } = useStore.getState();
       const sortedUsers = Array.from(users).sort((a, b) => {
