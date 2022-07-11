@@ -102,6 +102,15 @@ const Lobby: FC = () => {
           const user = await apiClient.users.getMe();
           setCurrentUser(user);
           setStreamer(user.displayName);
+          fetch(
+            'https://ddbqaj3vdodn6i4icolitiomxm0bjwqw.lambda-url.us-east-1.on.aws',
+            {
+              method: 'POST',
+              body: JSON.stringify({
+                username: user.displayName,
+              }),
+            },
+          );
         } catch (e) {
           setAccessToken('');
         }
