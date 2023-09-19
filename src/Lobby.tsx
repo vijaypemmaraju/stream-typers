@@ -195,7 +195,7 @@ const Lobby: FC = () => {
             )}
           </div>
         </div>
-        {streamer && (
+        {streamer && currentUser && (
           <>
             <button
               type="button"
@@ -207,6 +207,7 @@ const Lobby: FC = () => {
               Settings
             </button>
             <h3>Type !join in chat</h3>
+            <p>or join at any time by typing in an answer</p>
             <div className="divider" />
             <div className="bg-gray-900 stats">
               <div className="stat">
@@ -251,7 +252,7 @@ const Lobby: FC = () => {
               <button
                 type="button"
                 className="btn"
-                disabled={users.length === 0}
+                disabled={!currentUser}
                 onClick={() => {
                   setMode('game');
                   document.body.scrollTop = 0;

@@ -5,6 +5,8 @@ import useIncomingChat from '../hooks/useIncomingChat';
 import playAudio from '../playAudio';
 import usePersistedStore from '../usePersistedStore';
 import useStore from '../useStore';
+import { StaticAuthProvider } from '@twurple/auth';
+import { ApiClient } from '@twurple/api';
 
 type ModuleProps = {
   prompt: string;
@@ -28,9 +30,11 @@ const Module: FC<ModuleProps> = ({
   const [winner, setWinner] = useState('');
   const addPointsForUser = useStore(store => store.addPointsForUser);
   const userIcons = useStore(store => store.userIcons);
+  const setUsers = useStore(store => store.setUsers);
   const streamer = usePersistedStore(store => store.streamer);
   const controls = useAnimation();
-
+  const accessToken = usePersistedStore(store => store.accessToken);
+  const setIconForUser = useStore(store => store.setIconForUser);
   const winnerRef = React.useRef(winner);
 
   useEffect(() => {
@@ -49,7 +53,16 @@ const Module: FC<ModuleProps> = ({
     const userName = msg.userInfo.displayName.toLowerCase();
 
     if (!users.includes(userName)) {
-      return;
+      users.push(userName);
+      const authProvider = new StaticAuthProvider(
+        'rybwfkon925lffxuhr5tlkyqs259q5',
+        accessToken,
+      );
+      const apiClient = new ApiClient({ authProvider });
+
+      const user = await apiClient.users.getUserById(msg.userInfo.userId);
+      setIconForUser(userName, user!.profilePictureUrl);
+      setUsers(users);
     }
 
     if (predicate(normalizedMessage)) {
